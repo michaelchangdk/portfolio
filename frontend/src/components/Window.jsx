@@ -16,6 +16,11 @@ const Window = () => {
   const [expand, setExpand] = useState(false);
   const [minimize, setMinimize] = useState(false);
 
+  // const variants = {
+  //   visible: { opacity: 1 },
+  //   hidden: { opacity: 0 },
+  // };
+
   const handleExpand = () => {
     setExpand(!expand);
     setMinimize(false);
@@ -35,9 +40,12 @@ const Window = () => {
       //   top: 0,
       //   bottom: size.height / 2,
       // }}
-      closed={close}
+      exit={close}
       expand={expand}
       minimize={minimize}
+      // initial="visible"
+      // variants={variants}
+      // animate={expand ? "hidden" : "visible"}
     >
       <WindowTopBar backgroundcolor="red">
         <WindowTopBarLeft>
