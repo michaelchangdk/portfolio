@@ -66,7 +66,6 @@ export const WindowWrapper = styled(motion.div)`
   flex-direction: column;
   border-radius: 4px;
   margin: 0 auto;
-  outline: 1px solid #343a40;
 `;
 
 export const WindowTopBar = styled.div`
