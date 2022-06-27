@@ -1,6 +1,8 @@
 import styled from "styled-components/macro";
-import background from "../assets/background.jpg";
 import { motion } from "framer-motion";
+// import background from "../assets/background.jpg";
+import background2 from "../assets/background2.jpg";
+// import background3 from "../assets/background3.jpg";
 
 // Typography
 export const H1 = styled.h1`
@@ -28,7 +30,7 @@ export const P = styled.p`
 `;
 
 export const IndexBackground = styled.div`
-  background-image: url(${background});
+  background-image: url(${background2});
   min-height: 100vh;
   height: 100%;
   width: 100vw;
@@ -37,6 +39,7 @@ export const IndexBackground = styled.div`
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
+  padding-top: 32px;
 `;
 
 // Not being used
@@ -119,7 +122,6 @@ export const RaisedWindowButton = styled.button`
   width: 30px;
   height: 30px;
   border-radius: 4px;
-  outline: 1px solid #343a40;
   color: black;
 
   :active {
@@ -172,7 +174,5 @@ export const TreeChild = styled(motion.section)`
   flex-direction: column;
   margin-left: 9px;
   padding-left: 16px;
-  border-style: none none none solid;
-  border-color: black;
-  border-width: 0 0 0 1.5px;
+  border-left: 1.5px solid black;
 `;

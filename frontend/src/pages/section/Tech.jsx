@@ -26,10 +26,6 @@ const Tech = (constraintsRef) => {
           <AccordionTree disabled={true} title="Mongoose" />
           <AccordionTree disabled={true} title="MongoDB" />
         </AccordionTree>
-        <AccordionTree title="SKILLS">
-          <AccordionTree disabled={true} title="Project Management" />
-          <AccordionTree disabled={true} title="Workflow Automation" />
-        </AccordionTree>
         <AccordionTree title="TOOLBOX">
           <AccordionTree disabled={true} title="VSCode" />
           <AccordionTree disabled={true} title="Github" />
@@ -38,6 +34,10 @@ const Tech = (constraintsRef) => {
           <AccordionTree disabled={true} title="Postman" />
           <AccordionTree disabled={true} title="Zapier & Make" />
           <AccordionTree disabled={true} title="Airtable" />
+        </AccordionTree>
+        <AccordionTree title="SKILLS">
+          <AccordionTree disabled={true} title="Project Management" />
+          <AccordionTree disabled={true} title="Workflow Automation" />
         </AccordionTree>
         <AccordionTree title="EXPERIENCE">
           <AccordionTree disabled={true} title="Tech Lead @ With Purpose" />

@@ -13,7 +13,7 @@ import styled from "styled-components/macro";
 const Window = (props) => {
   const [close, setClose] = useState(false);
   const [expand, setExpand] = useState(false);
-  const [minimize, setMinimize] = useState(true);
+  const [minimize, setMinimize] = useState(false);
 
   const variants = {
     visible: { scale: 1, opacity: 1 },

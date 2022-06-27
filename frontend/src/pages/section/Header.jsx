@@ -7,6 +7,7 @@ import { Github } from "@styled-icons/entypo-social/Github";
 import { Linkedin } from "@styled-icons/evaicons-solid/Linkedin";
 import { TwitterOutline } from "@styled-icons/evaicons-outline/TwitterOutline";
 import { MailSend } from "@styled-icons/boxicons-regular/MailSend";
+import { Medium } from "@styled-icons/simple-icons/Medium";
 import { PersonBadgeFill } from "@styled-icons/bootstrap/PersonBadgeFill";
 
 const Header = (constraintsRef) => {
@@ -19,8 +20,16 @@ const Header = (constraintsRef) => {
       allowMaximize={false}
     >
       <ContactCard>
-        <div>
-          <ContactImage src={profile} alt="Profile of Michael" />
+        <ContactImage src={profile} alt="Profile of Michael" />
+        <ContactWrapper>
+          <RecessedWrapper>
+            <H2 size="22px">Hi! I'm Michael.</H2>
+            <P>I like to make things for the web.</P>
+            <P>
+              I'm a quick learner with a keen eye for detail, and I'm passionate
+              about building beautiful, fun, and user-friendly websites.
+            </P>
+          </RecessedWrapper>
           <SocialWrapper>
             <SocialButton>
               <Github />
@@ -29,21 +38,16 @@ const Header = (constraintsRef) => {
               <Linkedin />
             </SocialButton>
             <SocialButton>
+              <Medium />
+            </SocialButton>
+            <SocialButton>
               <TwitterOutline />
             </SocialButton>
             <SocialButton>
               <MailSend />
             </SocialButton>
           </SocialWrapper>
-        </div>
-        <RecessedWrapper>
-          <H2 size="22px">Hi! I'm Michael.</H2>
-          <P>I like to make things for the web.</P>
-          <P>
-            I'm a quick learner with a keen eye for detail, and I'm passionate
-            about building beautiful, fun, and user-friendly websites.
-          </P>
-        </RecessedWrapper>
+        </ContactWrapper>
       </ContactCard>
     </Window>
   );
@@ -58,7 +62,7 @@ const ContactCard = styled.div`
   margin: 0 auto;
 
   @media (min-width: 600px) {
-    grid-template-columns: 0.5fr 1fr;
+    grid-template-columns: 0.6fr 1fr;
   }
 `;
 
@@ -69,6 +73,26 @@ const ContactImage = styled.img`
   border-right: 4px solid #e9ecef;
   border-bottom: 4px solid #e9ecef;
   border-radius: 4px;
+`;
+
+const ContactWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+`;
+
+const RecessedWrapper = styled.div`
+  border-left: 4px solid #6c757d;
+  border-top: 4px solid #6c757d;
+  border-right: 4px solid #e9ecef;
+  border-bottom: 4px solid #e9ecef;
+  padding: 8px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
 `;
 
 const SocialWrapper = styled.div`
@@ -83,6 +107,12 @@ const SocialWrapper = styled.div`
   border-right: 4px solid #e9ecef;
   border-bottom: 4px solid #e9ecef;
   border-radius: 4px;
+  max-height: 66px;
+
+  @media (min-width: 600px) {
+    grid-column-start: 2;
+    grid-column-end: 2;
+  }
 `;
 
 const SocialButton = styled.button`
@@ -96,7 +126,6 @@ const SocialButton = styled.button`
   border-top: 4px solid #e9ecef;
   border-right: 4px solid #6c757d;
   border-bottom: 4px solid #6c757d;
-  outline: 0.5px solid #343a40;
   :active {
     padding: 2px;
     border-left: 4px solid #6c757d;
@@ -107,16 +136,4 @@ const SocialButton = styled.button`
   /* :hover {
     color: red;
   } */
-`;
-
-const RecessedWrapper = styled.div`
-  border-left: 4px solid #6c757d;
-  border-top: 4px solid #6c757d;
-  border-right: 4px solid #e9ecef;
-  border-bottom: 4px solid #e9ecef;
-  padding: 8px;
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
 `;
