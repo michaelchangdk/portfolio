@@ -6,6 +6,13 @@ import { motion } from "framer-motion";
 export const H1 = styled.h1`
   font-family: "Space Mono", monospace;
   font-weight: 700;
+  font-size: 18px;
+`;
+
+export const P = styled.p`
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  line-height: 1.5;
 `;
 
 export const IndexBackground = styled.div`
@@ -43,7 +50,7 @@ export const WindowWrapper = styled(motion.div)`
   border-right: 4px solid #6c757d;
   border-bottom: 4px solid #6c757d;
   width: ${(props) =>
-    props.expand ? "100%" : props.minimize ? "auto" : "90%"};
+    props.expand ? "100%" : props.minimize ? "324px" : "90%"};
   max-width: ${(props) => (props.expand ? "100%" : "800px")};
   height: ${(props) => (props.expand ? "100vh" : "auto")};
   /* display: ${(props) => (props.exit ? "none" : "flex")}; */
@@ -76,7 +83,7 @@ export const WindowTopBarRight = styled.div`
 `;
 
 export const WindowContent = styled.div`
-  display: ${(props) => (props.minimize ? "none" : "grid")};
+  display: ${(props) => (props.minimize ? "none" : "block")};
   padding: 8px 4px;
 `;
 
