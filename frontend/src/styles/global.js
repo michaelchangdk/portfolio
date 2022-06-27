@@ -172,7 +172,7 @@ export const TreeChild = styled(motion.section)`
   flex-direction: column;
   margin-left: 9px;
   padding-left: 16px;
-  border-style: dashed;
+  border-style: none none none dashed;
   border-color: black;
   border-width: 0 0 0 1.5px;
 `;
