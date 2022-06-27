@@ -42,14 +42,15 @@ export const WindowWrapper = styled(motion.div)`
   border-top: 4px solid #e9ecef;
   border-right: 4px solid #6c757d;
   border-bottom: 4px solid #6c757d;
-  display: ${(props) => (props.exit ? "none" : "flex")};
   width: ${(props) =>
     props.expand ? "100%" : props.minimize ? "auto" : "90%"};
   max-width: ${(props) => (props.expand ? "100%" : "800px")};
   height: ${(props) => (props.expand ? "100vh" : "auto")};
+  /* display: ${(props) => (props.exit ? "none" : "flex")}; */
+  display: flex;
+  flex-direction: column;
   border-radius: 4px;
   margin: 0 auto;
-  flex-direction: column;
 `;
 
 export const WindowTopBar = styled.div`

@@ -10,16 +10,16 @@ import {
   RaisedWindowButton,
 } from "../styles/global";
 
-const Window = () => {
+const Window = (props) => {
   // const size = useWindowSize();
   const [close, setClose] = useState(false);
   const [expand, setExpand] = useState(false);
   const [minimize, setMinimize] = useState(false);
 
-  // const variants = {
-  //   visible: { opacity: 1 },
-  //   hidden: { opacity: 0 },
-  // };
+  const variants = {
+    visible: { scale: 1, opacity: 1 },
+    hidden: { scale: 0, opacity: 0 },
+  };
 
   const handleExpand = () => {
     setExpand(!expand);
@@ -31,31 +31,36 @@ const Window = () => {
     setExpand(false);
   };
 
+  console.log(props);
+
   return (
     <WindowWrapper
-      drag
+      // drag
       // dragConstraints={{
       //   left: 0,
       //   right: size.width / 2,
       //   top: 0,
       //   bottom: size.height / 2,
       // }}
-      exit={close}
-      expand={expand}
-      minimize={minimize}
-      // initial="visible"
-      // variants={variants}
-      // animate={expand ? "hidden" : "visible"}
+      // exit={close}
+      expand={+expand}
+      minimize={+minimize}
+      initial="visible"
+      variants={variants}
+      animate={close ? "hidden" : "visible"}
+      layout
+      drag
+      transition={{ layout: { duration: 0.1 } }}
     >
-      <WindowTopBar backgroundcolor="red">
+      <WindowTopBar backgroundcolor={props.navcolor}>
         <WindowTopBarLeft>
-          <H1>This is the header</H1>
+          <H1>{props.title}</H1>
         </WindowTopBarLeft>
         <WindowTopBarRight>
-          <RaisedWindowButton onClick={handleMinimize} enabled={minimize}>
+          <RaisedWindowButton onClick={handleMinimize} enabled={+minimize}>
             _
           </RaisedWindowButton>
-          <RaisedWindowButton onClick={handleExpand} enabled={expand}>
+          <RaisedWindowButton onClick={handleExpand} enabled={+expand}>
             O
           </RaisedWindowButton>
           <RaisedWindowButton onClick={() => setClose(!close)}>
@@ -63,8 +68,8 @@ const Window = () => {
           </RaisedWindowButton>
         </WindowTopBarRight>
       </WindowTopBar>
-      <WindowContent minimize={minimize} expand={expand}>
-        <p>This is some more text</p>
+      <WindowContent minimize={minimize} expand={+expand}>
+        {props.children}
       </WindowContent>
     </WindowWrapper>
   );
