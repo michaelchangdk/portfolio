@@ -133,3 +133,43 @@ export const RaisedWindowButton = styled.button`
       props.disabled ? "4px solid #6c757d" : "4px solid #e9ecef"};
   }
 `;
+
+// Accordion Tree Component
+export const TreeHeader = styled(motion.div)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  cursor: ${(props) => (props.disabled ? "auto" : "pointer")};
+`;
+
+export const TreeButton = styled.button`
+  border: 1.5px solid black;
+  height: 20px;
+  width: 20px;
+  color: black;
+  font-family: "Source Code Pro", monospace;
+  font-weight: 600;
+  cursor: pointer;
+`;
+
+export const TreeIcon = styled.div`
+  border: 1.5px solid #6c757d;
+  height: 20px;
+  width: 20px;
+  color: #6c757d;
+  font-family: "Source Code Pro", monospace;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const TreeChild = styled(motion.section)`
+  display: flex;
+  flex-direction: column;
+  margin-left: 9px;
+  padding-left: 16px;
+  border-left: 1.5px dashed black;
+`;
