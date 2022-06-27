@@ -59,7 +59,8 @@ export const WindowWrapper = styled(motion.div)`
   width: ${(props) =>
     props.expand ? "100%" : props.minimize ? "324px" : "90%"};
   max-width: ${(props) => (props.expand ? "100%" : "800px")};
-  height: ${(props) => (props.expand ? "100vh" : "auto")};
+  min-height: ${(props) => (props.expand ? "100vh" : "auto")};
+  height: ${(props) => (props.expand ? "100%" : "auto")};
   /* display: ${(props) => (props.exit ? "none" : "flex")}; */
   display: flex;
   flex-direction: column;
@@ -114,6 +115,7 @@ export const RaisedWindowButton = styled.button`
   height: 30px;
   border-radius: 4px;
   outline: 0.5px solid #343a40;
+  color: black;
 
   :active {
     border-left: ${(props) =>

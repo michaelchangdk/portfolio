@@ -136,5 +136,5 @@ table {
   border-spacing: 0;
 }
 
-/* Font Import */
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=VT323&display=swap");
+/* Font Import 'Space Mono', monospace; fw 400 700*/
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
