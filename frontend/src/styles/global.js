@@ -30,16 +30,18 @@ export const P = styled.p`
 `;
 
 export const IndexBackground = styled.div`
-  background-image: url(${background2});
+  /* background-image: url(${background2});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; */
   min-height: 100vh;
   height: 100%;
   width: 100vw;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  padding-top: 32px;
+  padding: 32px 0;
+  gap: 16px;
+  background-color: white;
 `;
 
 // Not being used
@@ -65,8 +67,9 @@ export const WindowWrapper = styled(motion.div)`
   border-top: 4px solid #e9ecef;
   border-right: 4px solid #6c757d;
   border-bottom: 4px solid #6c757d;
-  width: ${(props) =>
-    props.expand ? "100%" : props.minimize ? "324px" : "90%"};
+  /* width: ${(props) =>
+    props.expand ? "100%" : props.minimize ? "324px" : "90%"}; */
+  width: ${(props) => (props.expand ? "100%" : "90%")};
   max-width: ${(props) => (props.expand ? "100%" : "800px")};
   min-height: ${(props) => (props.expand ? "100vh" : "auto")};
   height: ${(props) => (props.expand ? "100%" : "auto")};

@@ -45,7 +45,7 @@ const Window = (props) => {
       variants={variants}
       animate={close ? "hidden" : "visible"}
       layout
-      drag
+      // drag="y"
       transition={{ layout: { duration: 0.1 } }}
     >
       <WindowTopBar backgroundcolor={props.navcolor}>
