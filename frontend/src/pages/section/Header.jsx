@@ -7,7 +7,6 @@ import { Github } from "@styled-icons/entypo-social/Github";
 import { Linkedin } from "@styled-icons/evaicons-solid/Linkedin";
 import { TwitterOutline } from "@styled-icons/evaicons-outline/TwitterOutline";
 import { MailSend } from "@styled-icons/boxicons-regular/MailSend";
-import { Icq } from "@styled-icons/simple-icons/Icq";
 import { PersonBadgeFill } from "@styled-icons/bootstrap/PersonBadgeFill";
 
 const Header = (constraintsRef) => {
