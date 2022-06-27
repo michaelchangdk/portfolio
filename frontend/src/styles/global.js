@@ -9,6 +9,12 @@ export const H1 = styled.h1`
   font-size: 18px;
 `;
 
+export const H2 = styled.h2`
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 18px;
+`;
+
 export const P = styled.p`
   font-family: "Space Mono", monospace;
   font-weight: 400;
@@ -18,6 +24,7 @@ export const P = styled.p`
 export const IndexBackground = styled.div`
   background-image: url(${background});
   min-height: 100vh;
+  height: 100%;
   width: 100vw;
   background-size: cover;
   background-position: center;
@@ -58,6 +65,7 @@ export const WindowWrapper = styled(motion.div)`
   flex-direction: column;
   border-radius: 4px;
   margin: 0 auto;
+  outline: 1px solid #343a40;
 `;
 
 export const WindowTopBar = styled.div`
@@ -65,7 +73,7 @@ export const WindowTopBar = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 4px;
+  padding: 8px;
   background-color: ${(props) => props.backgroundcolor};
   color: white;
   height: 48px;
@@ -73,6 +81,8 @@ export const WindowTopBar = styled.div`
 
 export const WindowTopBarLeft = styled.div`
   display: flex;
+  flex-direction: row;
+  align-items: center;
   gap: 8px;
   margin-right: 16px;
 `;
@@ -84,7 +94,7 @@ export const WindowTopBarRight = styled.div`
 
 export const WindowContent = styled.div`
   display: ${(props) => (props.minimize ? "none" : "block")};
-  padding: 8px 4px;
+  padding: 8px;
 `;
 
 export const RaisedWindowButton = styled.button`
@@ -103,6 +113,7 @@ export const RaisedWindowButton = styled.button`
   width: 30px;
   height: 30px;
   border-radius: 4px;
+  outline: 0.5px solid #343a40;
 
   :active {
     border-left: ${(props) =>

@@ -8,6 +8,7 @@ import {
   WindowContent,
   RaisedWindowButton,
 } from "../styles/global";
+import styled from "styled-components/macro";
 
 const Window = (props) => {
   const [close, setClose] = useState(false);
@@ -29,6 +30,11 @@ const Window = (props) => {
     setExpand(false);
   };
 
+  const AppIcon = styled(props.icon)`
+    height: 28px;
+    width: 28px;
+  `;
+
   return (
     <WindowWrapper
       // exit={close}
@@ -44,6 +50,7 @@ const Window = (props) => {
     >
       <WindowTopBar backgroundcolor={props.navcolor}>
         <WindowTopBarLeft>
+          <AppIcon />
           <H1>{props.title}</H1>
         </WindowTopBarLeft>
         <WindowTopBarRight>
