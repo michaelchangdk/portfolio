@@ -152,6 +152,7 @@ export const TreeButton = styled.button`
   font-family: "Source Code Pro", monospace;
   font-weight: 600;
   cursor: pointer;
+  background-color: white;
 `;
 
 export const TreeIcon = styled.div`

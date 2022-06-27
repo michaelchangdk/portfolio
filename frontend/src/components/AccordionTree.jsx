@@ -21,7 +21,7 @@ const AccordionTree = (props) => {
     <>
       <TreeHeader onClick={() => setIsOpen(!isOpen)} disabled={props.disabled}>
         {!props.disabled && <TreeButton>{isOpen ? "-" : "+"}</TreeButton>}
-        {props.disabled && <TreeIcon>⨯</TreeIcon>}
+        {props.disabled && <TreeIcon>·</TreeIcon>}
         <H2SourceCode>{props.title}</H2SourceCode>
       </TreeHeader>
       {!props.disabled && (

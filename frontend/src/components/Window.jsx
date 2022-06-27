@@ -69,7 +69,7 @@ const Window = (props) => {
         </WindowTopBarRight>
       </WindowTopBar>
       <WindowContent
-        minimize={minimize}
+        minimize={+minimize}
         expand={+expand}
         layout
         transition={{ layout: { duration: 0.1 } }}
