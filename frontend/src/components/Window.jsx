@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { useWindowSize } from "../helpers/hooks";
 import {
   H1,
   WindowWrapper,
@@ -11,7 +10,6 @@ import {
 } from "../styles/global";
 
 const Window = (props) => {
-  // const size = useWindowSize();
   const [close, setClose] = useState(false);
   const [expand, setExpand] = useState(false);
   const [minimize, setMinimize] = useState(false);
@@ -31,18 +29,10 @@ const Window = (props) => {
     setExpand(false);
   };
 
-  console.log(props);
-
   return (
     <WindowWrapper
-      // drag
-      // dragConstraints={{
-      //   left: 0,
-      //   right: size.width / 2,
-      //   top: 0,
-      //   bottom: size.height / 2,
-      // }}
       // exit={close}
+      dragConstraints={props.constraintsRef.constraintsRef}
       expand={+expand}
       minimize={+minimize}
       initial="visible"
