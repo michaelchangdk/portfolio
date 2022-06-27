@@ -16,6 +16,7 @@ const Header = (constraintsRef) => {
       navcolor="red"
       constraintsRef={constraintsRef}
       icon={PersonBadgeFill}
+      allowMinimize={false}
     >
       <ContactCard>
         <div>

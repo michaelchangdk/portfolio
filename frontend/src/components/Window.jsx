@@ -15,6 +15,8 @@ const Window = (props) => {
   const [expand, setExpand] = useState(false);
   const [minimize, setMinimize] = useState(true);
 
+  console.log(props);
+
   const variants = {
     visible: { scale: 1, opacity: 1 },
     hidden: { scale: 0, opacity: 0 },
@@ -57,9 +59,12 @@ const Window = (props) => {
           <RaisedWindowButton onClick={handleMinimize} enabled={+minimize}>
             _
           </RaisedWindowButton>
-          <RaisedWindowButton onClick={handleExpand} enabled={+expand}>
-            O
-          </RaisedWindowButton>
+          {/* Possibly Remove or conditionally render the expand button? */}
+          {props.allowMinimize && (
+            <RaisedWindowButton onClick={handleExpand} enabled={+expand}>
+              O
+            </RaisedWindowButton>
+          )}
           <RaisedWindowButton onClick={() => setClose(!close)}>
             X
           </RaisedWindowButton>
