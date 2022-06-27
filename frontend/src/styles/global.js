@@ -6,13 +6,19 @@ import { motion } from "framer-motion";
 export const H1 = styled.h1`
   font-family: "Space Mono", monospace;
   font-weight: 700;
-  font-size: 18px;
+  font-size: ${(props) => props.size || "18px"};
 `;
 
 export const H2 = styled.h2`
   font-family: "Space Mono", monospace;
   font-weight: 700;
   font-size: ${(props) => props.size || "18px"};
+`;
+
+export const H2SourceCode = styled.h2`
+  font-family: "Source Code Pro", monospace;
+  font-weight: 400;
+  font-size: ${(props) => props.size || "16px"};
 `;
 
 export const P = styled.p`
@@ -92,7 +98,7 @@ export const WindowTopBarRight = styled.div`
   gap: 4px;
 `;
 
-export const WindowContent = styled.div`
+export const WindowContent = styled(motion.div)`
   display: ${(props) => (props.minimize ? "none" : "block")};
   padding: 8px;
 `;
@@ -113,7 +119,7 @@ export const RaisedWindowButton = styled.button`
   width: 30px;
   height: 30px;
   border-radius: 4px;
-  outline: 0.5px solid #343a40;
+  outline: 1px solid #343a40;
   color: black;
 
   :active {

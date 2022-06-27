@@ -58,7 +58,7 @@ const Window = (props) => {
             _
           </RaisedWindowButton>
           {/* Possibly Remove or conditionally render the expand button? */}
-          {props.allowMinimize && (
+          {props.allowMaximize && (
             <RaisedWindowButton onClick={handleExpand} enabled={+expand}>
               O
             </RaisedWindowButton>
@@ -68,7 +68,12 @@ const Window = (props) => {
           </RaisedWindowButton>
         </WindowTopBarRight>
       </WindowTopBar>
-      <WindowContent minimize={minimize} expand={+expand}>
+      <WindowContent
+        minimize={minimize}
+        expand={+expand}
+        layout
+        transition={{ layout: { duration: 0.1 } }}
+      >
         {props.children}
       </WindowContent>
     </WindowWrapper>

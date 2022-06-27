@@ -16,7 +16,7 @@ const Header = (constraintsRef) => {
       navcolor="red"
       constraintsRef={constraintsRef}
       icon={PersonBadgeFill}
-      allowMinimize={false}
+      allowMaximize={false}
     >
       <ContactCard>
         <div>
@@ -38,7 +38,7 @@ const Header = (constraintsRef) => {
         </div>
         <RecessedWrapper>
           <H2 size="22px">Hi! I'm Michael.</H2>
-          <P>I like to build things for the web.</P>
+          <P>I like to make things for the web.</P>
           <P>
             I'm a quick learner with a keen eye for detail, and I'm passionate
             about building beautiful, fun, and user-friendly websites.
