@@ -37,13 +37,8 @@ const Header = (constraintsRef) => {
           </SocialWrapper>
         </div>
         <RecessedWrapper>
-          <H2>Hi! I'm Michael.</H2>
+          <H2 size="22px">Hi! I'm Michael.</H2>
           <P>I like to build things for the web.</P>
-          <P>
-            I'm a frontend dev with project manager experience, with a strong
-            background in customer service and a proven track record of
-            successful projects.
-          </P>
           <P>
             I'm a quick learner with a keen eye for detail, and I'm passionate
             about building beautiful, fun, and user-friendly websites.
@@ -63,7 +58,7 @@ const ContactCard = styled.div`
   margin: 0 auto;
 
   @media (min-width: 600px) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.5fr 1fr;
   }
 `;
 
@@ -121,4 +116,7 @@ const RecessedWrapper = styled.div`
   border-bottom: 4px solid #e9ecef;
   padding: 8px;
   border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 `;

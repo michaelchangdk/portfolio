@@ -12,13 +12,13 @@ export const H1 = styled.h1`
 export const H2 = styled.h2`
   font-family: "Space Mono", monospace;
   font-weight: 700;
-  font-size: 18px;
+  font-size: ${(props) => props.size || "18px"};
 `;
 
 export const P = styled.p`
-  font-family: "Space Mono", monospace;
+  font-family: "Prompt", sans-serif;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.3;
 `;
 
 export const IndexBackground = styled.div`
