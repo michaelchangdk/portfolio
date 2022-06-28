@@ -63,19 +63,30 @@
 // Example 3: ["Artist 1", "Artist 2", "Artist 3", "Artist 4", "Artist 5"] = "Artist 1 feat. Artist 2, Artist 3, Artist 4 & Artist 5"
 // Example 4: ["Artist 1", "Artist 2"] = "Artist 1 feat. Artist 2"
 
-const feat = (array) => {
-  let string = "";
-  for (let i = 0; i < array.length; i++) {
-    if (i === array.length - 1) {
-      string += ` & ${array[i]}`;
-    } else if (i === array.length - 2) {
-      string += `${array[i]}`;
-    } else if (i !== array.length - 1 && i !== 0) {
-      string += `${array[i]}, `;
-    } else if (i === 0) {
-      string += `${array[i]} feat. `;
-    }
-  }
-  console.log(string);
-  return string;
-};
+// const feat = (array) => {
+//   let string = "";
+//   for (let i = 0; i < array.length; i++) {
+//     if (i === array.length - 1) {
+//       string += ` & ${array[i]}`;
+//     } else if (i === array.length - 2) {
+//       string += `${array[i]}`;
+//     } else if (i !== array.length - 1 && i !== 0) {
+//       string += `${array[i]}, `;
+//     } else if (i === 0) {
+//       string += `${array[i]} feat. `;
+//     }
+//   }
+//   console.log(string);
+//   return string;
+// };
+
+// Write a function that increments the index in an array, and at the end of the array, returns to element 0
+
+// const incrementIndex = (array) => {
+//     let index = array.length - 1;
+//     array[index]++;
+//     if (index === array.length) {
+//         array[index] = 0;
+//     }
+//     return array;
+//     }
