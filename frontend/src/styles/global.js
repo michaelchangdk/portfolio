@@ -233,3 +233,50 @@ export const TreeChild = styled(motion.section)`
   padding-left: 16px;
   border-left: 1.5px solid black;
 `;
+
+// Bio Section
+export const ContactCard = styled.div`
+  display: grid;
+  gap: 8px;
+  max-width: 900px;
+  margin: 0 auto;
+
+  @media (min-width: 600px) {
+    grid-template-columns: 0.6fr 1fr;
+    grid-template-rows: auto auto;
+  }
+`;
+
+export const ContactTextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+
+  @media (min-width: 600px) {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 2;
+  }
+`;
+
+export const ContactSocialWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 8px;
+  border-left: 4px solid #6c757d;
+  border-top: 4px solid #6c757d;
+  border-right: 4px solid #e9ecef;
+  border-bottom: 4px solid #e9ecef;
+  border-radius: 4px;
+  max-height: 66px;
+
+  @media (min-width: 600px) {
+    grid-column-start: 1;
+    grid-column-end: 1;
+  }
+`;
