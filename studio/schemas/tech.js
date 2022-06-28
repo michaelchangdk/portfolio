@@ -10,6 +10,14 @@ export default {
       type: "string",
     },
     {
+      name: "color",
+      title: "Header color",
+      type: "color",
+      options: {
+        disableAlpha: true,
+      },
+    },
+    {
       name: "stack",
       title: "Stack",
       type: "array",
