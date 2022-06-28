@@ -1,61 +1,120 @@
-import React from "react";
-import styled from "styled-components/macro";
+import React, { useState } from "react";
+import { FetchSection } from "../../services/clientFunctions";
+import { urlFor } from "../../client";
+// Component Import
 import Window from "../../components/Window";
-import { H1, P, RecessedWrapper, LinkButton } from "../../styles/global";
+// Function imports
+import { tagsFeaturing } from "../../helpers/functions";
+// Styling & Asset Imports
+import styled from "styled-components/macro";
+import { H2, P, RecessedWrapper, LinkButton } from "../../styles/global";
 import { MusicPlayerFill } from "@styled-icons/bootstrap/MusicPlayerFill";
 import { ExternalLink } from "@styled-icons/heroicons-outline/ExternalLink";
 import { Github } from "@styled-icons/entypo-social/Github";
-import { PlayArrow } from "@styled-icons/material-rounded/PlayArrow";
 import { SkipPrevious } from "@styled-icons/material-rounded/SkipPrevious";
 import { SkipNext } from "@styled-icons/material-rounded/SkipNext";
+import { Flip } from "@styled-icons/material/Flip";
+// Query Declaration
+const query = `*[_type == "featuredprojects" && !(_id in path('drafts.**'))] {featured[]->, title, color}`;
 
 const Featured = (constraintsRef) => {
+  const [loading, data] = FetchSection(query);
+  const [index, setIndex] = useState(0);
+
+  const incrementCarousel = (array) => {
+    if (index === array.length - 1) {
+      setIndex(0);
+    } else {
+      setIndex(index + 1);
+    }
+  };
+
+  const decrementCarousel = (array) => {
+    if (index === 0) {
+      setIndex(array.length - 1);
+    } else {
+      setIndex(index - 1);
+    }
+  };
+
   return (
-    <Window
-      title="FEAT. PROJECTS"
-      navcolor="green"
-      constraintsRef={constraintsRef}
-      icon={MusicPlayerFill}
-      allowMaximize={false}
-    >
-      <FeaturedCard>
-        <RecessedWrapper
-          flexdirection="row"
-          justifycontent="space-between"
-          gap="16px"
-        ></RecessedWrapper>
-        <H1>With Purpose - E-learning Platform</H1>
-        <P>React feat. Redux, React-Router, Sanity.io & MUI</P>
-        <CarouselNavWrapper>
-          <CarouselButton>
-            <SkipPrevious />
-          </CarouselButton>
-          <PlayButton>
-            <PlayArrow />
-          </PlayButton>
-          <CarouselButton>
-            <SkipNext />
-          </CarouselButton>
-        </CarouselNavWrapper>
-        <ButtonWrapper>
-          <LinkButton>
-            <Github />
-          </LinkButton>
-          <LinkButton>
-            <ExternalLink />
-          </LinkButton>
-        </ButtonWrapper>
-      </FeaturedCard>
-    </Window>
+    <>
+      {!loading && (
+        <Window
+          title={data[0].title}
+          navcolor="green"
+          constraintsRef={constraintsRef}
+          icon={MusicPlayerFill}
+          allowMaximize={false}
+        >
+          <PlayWrapper>
+            <FeaturedWrapper>
+              <RecessedWrapper
+                flexdirection="row"
+                justifycontent="space-between"
+                gap="16px"
+                padding="0px"
+              >
+                <FeaturedImage
+                  src={urlFor(data[0].featured[index].image.asset._ref)}
+                  alt={data[0].featured[index].title}
+                />
+              </RecessedWrapper>
+              <H2 weight={400}>{data[0].featured[index].title}</H2>
+              <P weight={300} size="14px">
+                {tagsFeaturing(data[0].featured[index].stack)}
+              </P>
+            </FeaturedWrapper>
+            <ButtonWrapper>
+              <LinkButton>
+                <Flip />
+              </LinkButton>
+              <CarouselNavWrapper>
+                <NavButton onClick={() => decrementCarousel(data[0].featured)}>
+                  <SkipPrevious />
+                </NavButton>
+                <CenterButton
+                  onClick={() =>
+                    window.open(`${data[0].featured[index].github}`, "_blank")
+                  }
+                >
+                  <Github />
+                </CenterButton>
+                <NavButton onClick={() => incrementCarousel(data[0].featured)}>
+                  <SkipNext />
+                </NavButton>
+              </CarouselNavWrapper>
+              <LinkButton
+                onClick={() =>
+                  window.open(`${data[0].featured[index].live}`, "_blank")
+                }
+              >
+                <ExternalLink />
+              </LinkButton>
+            </ButtonWrapper>
+          </PlayWrapper>
+        </Window>
+      )}
+    </>
   );
 };
 
 export default Featured;
 
-const FeaturedCard = styled.div`
+const FeaturedImage = styled.img`
+  width: 100%;
+`;
+
+const PlayWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+`;
+
+const FeaturedWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 `;
 
 const CarouselNavWrapper = styled.div`
@@ -66,13 +125,13 @@ const CarouselNavWrapper = styled.div`
   gap: 16px;
 `;
 
-const PlayButton = styled.button`
+const CenterButton = styled.button`
   width: 72px;
   height: 72px;
   border-radius: 50%;
   color: #212529;
   background-color: #ced4da;
-  padding: 4px;
+  padding: 8px;
   border-left: 4px solid #e9ecef;
   border-top: 4px solid #e9ecef;
   border-right: 4px solid #6c757d;
@@ -86,7 +145,7 @@ const PlayButton = styled.button`
   }
 `;
 
-const CarouselButton = styled.button`
+const NavButton = styled.button`
   width: 52px;
   height: 52px;
   border-radius: 50%;
@@ -109,7 +168,6 @@ const CarouselButton = styled.button`
 const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-  gap: 8px;
 `;

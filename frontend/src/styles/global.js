@@ -29,7 +29,7 @@ export const H1 = styled.h1`
 
 export const H2 = styled.h2`
   font-family: "Space Mono", monospace;
-  font-weight: 700;
+  font-weight: ${(props) => props.weight || "700"};
   font-size: ${(props) => props.size || "18px"};
 `;
 
@@ -47,7 +47,8 @@ export const H2SourceCode = styled.h2`
 
 export const P = styled.p`
   font-family: "Prompt", sans-serif;
-  font-weight: 400;
+  font-weight: ${(props) => props.weight || "400"};
+  font-size: ${(props) => props.size || "16px"};
   line-height: 1.3;
 `;
 
@@ -78,7 +79,7 @@ export const RecessedWrapper = styled.div`
   border-top: 4px solid #6c757d;
   border-right: 4px solid #e9ecef;
   border-bottom: 4px solid #e9ecef;
-  padding: 8px;
+  padding: ${(props) => props.flexdirection || "8px"};
   border-radius: 4px;
   display: flex;
   flex-direction: ${(props) => props.flexdirection || "column"};
