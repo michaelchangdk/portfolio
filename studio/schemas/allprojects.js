@@ -4,7 +4,7 @@ export default {
   type: "document",
   __experimental_actions: ["create", "update", /*"delete",*/ "publish"],
   fields: [
-    { name: "title", title: "Title", type: "string", readOnly: true },
+    { name: "title", title: "Title", type: "string" },
     {
       name: "allprojects",
       title: "All projects",
