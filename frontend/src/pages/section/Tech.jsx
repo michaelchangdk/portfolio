@@ -36,6 +36,9 @@ const Tech = (constraintsRef) => {
           <AccordionTree disabled={true} title="Airtable" />
         </AccordionTree>
         <AccordionTree title="SKILLS">
+          <AccordionTree disabled={true} title="Agile Methodology" />
+          <AccordionTree disabled={true} title="Pair Programming" />
+          <AccordionTree disabled={true} title="Mob Programming" />
           <AccordionTree disabled={true} title="Project Management" />
           <AccordionTree disabled={true} title="Workflow Automation" />
         </AccordionTree>

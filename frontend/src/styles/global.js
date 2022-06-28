@@ -4,6 +4,22 @@ import { motion } from "framer-motion";
 import background2 from "../assets/background2.jpg";
 // import background3 from "../assets/background3.jpg";
 
+// Background wrapper for page
+export const IndexBackground = styled.div`
+  /* background-image: url(${background2});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; */
+  min-height: 100vh;
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 0;
+  gap: 16px;
+  background-color: white;
+`;
+
 // Typography
 export const H1 = styled.h1`
   font-family: "Space Mono", monospace;
@@ -14,6 +30,12 @@ export const H1 = styled.h1`
 export const H2 = styled.h2`
   font-family: "Space Mono", monospace;
   font-weight: 700;
+  font-size: ${(props) => props.size || "18px"};
+`;
+
+export const H3 = styled.h3`
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
   font-size: ${(props) => props.size || "18px"};
 `;
 
@@ -29,19 +51,51 @@ export const P = styled.p`
   line-height: 1.3;
 `;
 
-export const IndexBackground = styled.div`
-  /* background-image: url(${background2});
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat; */
-  min-height: 100vh;
-  height: 100%;
-  width: 100vw;
+// Buttons - used in Header, Featured
+export const LinkButton = styled.button`
+  height: 42px;
+  width: 42px;
+  color: #212529;
+  background-color: #ced4da;
+  padding: 4px;
+  border-radius: 4px;
+  border-left: 4px solid #e9ecef;
+  border-top: 4px solid #e9ecef;
+  border-right: 4px solid #6c757d;
+  border-bottom: 4px solid #6c757d;
+  :active {
+    padding: 2px;
+    border-left: 4px solid #6c757d;
+    border-top: 4px solid #6c757d;
+    border-right: 4px solid #e9ecef;
+    border-bottom: 4px solid #e9ecef;
+  }
+`;
+
+// Containers - used in Header, Featured
+export const RecessedWrapper = styled.div`
+  border-left: 4px solid #6c757d;
+  border-top: 4px solid #6c757d;
+  border-right: 4px solid #e9ecef;
+  border-bottom: 4px solid #e9ecef;
+  padding: 8px;
+  border-radius: 4px;
   display: flex;
-  flex-direction: column;
-  padding: 32px 0;
-  gap: 16px;
-  background-color: white;
+  flex-direction: ${(props) => props.flexdirection || "column"};
+  gap: ${(props) => props.gap || "0px"};
+  justify-content: ${(props) => props.justifycontent || "space-around"};
+  align-items: ${(props) => props.alignitems || "flex-start"};
+  height: 100%;
+`;
+
+// Images - used in Header
+export const FullWidthImage = styled.img`
+  width: 100%;
+  border-left: 4px solid #6c757d;
+  border-top: 4px solid #6c757d;
+  border-right: 4px solid #e9ecef;
+  border-bottom: 4px solid #e9ecef;
+  border-radius: 4px;
 `;
 
 // Not being used

@@ -1,13 +1,19 @@
 import React from "react";
 import Window from "../../components/Window";
-import { H2, P } from "../../styles/global";
+import {
+  H2,
+  P,
+  LinkButton,
+  RecessedWrapper,
+  FullWidthImage,
+} from "../../styles/global";
 import styled from "styled-components/macro";
 import profile from "../../assets/profile.jpg";
 import { Github } from "@styled-icons/entypo-social/Github";
 import { Linkedin } from "@styled-icons/evaicons-solid/Linkedin";
-import { TwitterOutline } from "@styled-icons/evaicons-outline/TwitterOutline";
 import { MailSend } from "@styled-icons/boxicons-regular/MailSend";
 import { Medium } from "@styled-icons/simple-icons/Medium";
+import { Download } from "@styled-icons/icomoon/Download";
 import { PersonBadgeFill } from "@styled-icons/bootstrap/PersonBadgeFill";
 
 const Header = (constraintsRef) => {
@@ -20,33 +26,56 @@ const Header = (constraintsRef) => {
       allowMaximize={false}
     >
       <ContactCard>
-        <ContactImage src={profile} alt="Profile of Michael" />
+        <FullWidthImage src={profile} alt="Profile of Michael" />
+        <SocialWrapper>
+          <LinkButton
+            onClick={() =>
+              window.open("https://github.com/michaelchangdk", "_blank")
+            }
+          >
+            <Github />
+          </LinkButton>
+          <LinkButton
+            onClick={() =>
+              window.open(
+                "https://www.linkedin.com/in/michaelchangdk/",
+                "_blank"
+              )
+            }
+          >
+            <Linkedin />
+          </LinkButton>
+          <LinkButton
+            onClick={() =>
+              window.open("https://medium.com/@michaelchangdk", "_blank")
+            }
+          >
+            <Medium />
+          </LinkButton>
+          <LinkButton
+            onClick={() =>
+              window.open("mailto:michaelchangdk@icloud.com?subject=Hello!")
+            }
+          >
+            <MailSend />
+          </LinkButton>
+          <LinkButton onClick={() => window.open("", "_blank")}>
+            <Download />
+          </LinkButton>
+        </SocialWrapper>
         <ContactWrapper>
-          <RecessedWrapper>
+          <RecessedWrapper gap="16px">
             <H2 size="22px">Hi! I'm Michael.</H2>
             <P>I like to make things for the web.</P>
             <P>
               I'm a quick learner with a keen eye for detail, and I'm passionate
               about building beautiful, fun, and user-friendly websites.
             </P>
+            <P>
+              Feel free to connect with me using any of the buttons, or download
+              my resume.
+            </P>
           </RecessedWrapper>
-          <SocialWrapper>
-            <SocialButton>
-              <Github />
-            </SocialButton>
-            <SocialButton>
-              <Linkedin />
-            </SocialButton>
-            <SocialButton>
-              <Medium />
-            </SocialButton>
-            <SocialButton>
-              <TwitterOutline />
-            </SocialButton>
-            <SocialButton>
-              <MailSend />
-            </SocialButton>
-          </SocialWrapper>
         </ContactWrapper>
       </ContactCard>
     </Window>
@@ -63,36 +92,22 @@ const ContactCard = styled.div`
 
   @media (min-width: 600px) {
     grid-template-columns: 0.6fr 1fr;
+    grid-template-rows: auto auto;
   }
-`;
-
-const ContactImage = styled.img`
-  width: 100%;
-  border-left: 4px solid #6c757d;
-  border-top: 4px solid #6c757d;
-  border-right: 4px solid #e9ecef;
-  border-bottom: 4px solid #e9ecef;
-  border-radius: 4px;
 `;
 
 const ContactWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 8px;
-`;
-
-const RecessedWrapper = styled.div`
-  border-left: 4px solid #6c757d;
-  border-top: 4px solid #6c757d;
-  border-right: 4px solid #e9ecef;
-  border-bottom: 4px solid #e9ecef;
-  padding: 8px;
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
   gap: 16px;
-  height: 100%;
+
+  @media (min-width: 600px) {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 2;
+  }
 `;
 
 const SocialWrapper = styled.div`
@@ -110,30 +125,7 @@ const SocialWrapper = styled.div`
   max-height: 66px;
 
   @media (min-width: 600px) {
-    grid-column-start: 2;
-    grid-column-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 1;
   }
-`;
-
-const SocialButton = styled.button`
-  height: 42px;
-  width: 42px;
-  color: #212529;
-  background-color: #ced4da;
-  padding: 4px;
-  border-radius: 4px;
-  border-left: 4px solid #e9ecef;
-  border-top: 4px solid #e9ecef;
-  border-right: 4px solid #6c757d;
-  border-bottom: 4px solid #6c757d;
-  :active {
-    padding: 2px;
-    border-left: 4px solid #6c757d;
-    border-top: 4px solid #6c757d;
-    border-right: 4px solid #e9ecef;
-    border-bottom: 4px solid #e9ecef;
-  }
-  /* :hover {
-    color: red;
-  } */
 `;
