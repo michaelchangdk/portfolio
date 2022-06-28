@@ -44,6 +44,7 @@ const Tech = (constraintsRef) => {
         </AccordionTree>
         <AccordionTree title="EXPERIENCE">
           <AccordionTree disabled={true} title="Tech Lead @ With Purpose" />
+          <AccordionTree disabled={true} title="RHoK Hackathon" />
           <AccordionTree
             disabled={true}
             title="Technigo Frontend Dev Bootcamp"
