@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { FetchSection } from "../../services/clientFunctions";
-import { urlFor } from "../../client";
 // Component Import
 import Window from "../../components/Window";
-// Function imports
-import { tagsFeaturing } from "../../helpers/functions";
+import FeaturedCard from "../../components/FeaturedCard";
 // Styling & Asset Imports
 import styled from "styled-components/macro";
-import { H2, P, RecessedWrapper, LinkButton } from "../../styles/global";
+import { LinkButton } from "../../styles/global";
 import { MusicPlayerFill } from "@styled-icons/bootstrap/MusicPlayerFill";
 import { ExternalLink } from "@styled-icons/heroicons-outline/ExternalLink";
 import { Github } from "@styled-icons/entypo-social/Github";
@@ -20,21 +18,32 @@ const query = `*[_type == "featuredprojects" && !(_id in path('drafts.**'))] {fe
 const Featured = (constraintsRef) => {
   const [loading, data] = FetchSection(query);
   const [index, setIndex] = useState(0);
+  const [fade, setFade] = useState(true);
+  const [flip, setFlip] = useState(false);
 
   const incrementCarousel = (array) => {
+    setFade(true);
     if (index === array.length - 1) {
       setIndex(0);
-    } else {
+    }
+    if (index !== array.length - 1) {
       setIndex(index + 1);
     }
   };
 
   const decrementCarousel = (array) => {
+    setFade(true);
     if (index === 0) {
       setIndex(array.length - 1);
-    } else {
+    }
+    if (index !== 0) {
       setIndex(index - 1);
     }
+  };
+
+  const flipCard = () => {
+    setFade(false);
+    setFlip(!flip);
   };
 
   return (
@@ -48,25 +57,9 @@ const Featured = (constraintsRef) => {
           allowMaximize={false}
         >
           <PlayWrapper>
-            <FeaturedWrapper>
-              <RecessedWrapper
-                flexdirection="row"
-                justifycontent="space-between"
-                gap="16px"
-                padding="0px"
-              >
-                <FeaturedImage
-                  src={urlFor(data[0].featured[index].image.asset._ref)}
-                  alt={data[0].featured[index].title}
-                />
-              </RecessedWrapper>
-              <H2 weight={400}>{data[0].featured[index].title}</H2>
-              <P weight={300} size="14px">
-                {tagsFeaturing(data[0].featured[index].stack)}
-              </P>
-            </FeaturedWrapper>
+            <FeaturedCard data={data} index={index} fade={fade} />
             <ButtonWrapper>
-              <LinkButton>
+              <LinkButton onClick={flipCard}>
                 <Flip />
               </LinkButton>
               <CarouselNavWrapper>
@@ -101,20 +94,10 @@ const Featured = (constraintsRef) => {
 
 export default Featured;
 
-const FeaturedImage = styled.img`
-  width: 100%;
-`;
-
 const PlayWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-`;
-
-const FeaturedWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
 `;
 
 const CarouselNavWrapper = styled.div`

@@ -79,7 +79,7 @@ export const RecessedWrapper = styled.div`
   border-top: 4px solid #6c757d;
   border-right: 4px solid #e9ecef;
   border-bottom: 4px solid #e9ecef;
-  padding: ${(props) => props.flexdirection || "8px"};
+  padding: ${(props) => props.padding || "8px"};
   border-radius: 4px;
   display: flex;
   flex-direction: ${(props) => props.flexdirection || "column"};
@@ -87,6 +87,7 @@ export const RecessedWrapper = styled.div`
   justify-content: ${(props) => props.justifycontent || "space-around"};
   align-items: ${(props) => props.alignitems || "flex-start"};
   height: 100%;
+  height: ${(props) => props.height || "auto"};
 `;
 
 // Images - used in Header
