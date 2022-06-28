@@ -1,9 +1,11 @@
 import React from "react";
+import { FetchSection } from "../../services/clientFunctions";
+// Component Import
 import Window from "../../components/Window";
 import AccordionTree from "../../components/AccordionTree";
+// Styling & Asset Imports
 import { List } from "@styled-icons/entypo/List";
-import { FetchSection } from "../../services/clientFunctions";
-
+// Query Declaration
 const query = `*[_type == "tech" && !(_id in path('drafts.**'))]`;
 
 const Tech = (constraintsRef) => {
