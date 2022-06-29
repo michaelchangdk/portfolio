@@ -73,7 +73,7 @@ export const LinkButton = styled.button`
   }
 `;
 
-// Containers - used in Header, Featured
+// Containers - used in Header, Featuredcard
 export const RecessedWrapper = styled.div`
   border-left: 4px solid #6c757d;
   border-top: 4px solid #6c757d;
@@ -88,6 +88,7 @@ export const RecessedWrapper = styled.div`
   align-items: ${(props) => props.alignitems || "flex-start"};
   height: 100%;
   height: ${(props) => props.height || "auto"};
+  position: relative;
 `;
 
 // Images - used in Header

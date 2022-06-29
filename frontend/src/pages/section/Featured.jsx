@@ -57,8 +57,8 @@ const Featured = (constraintsRef) => {
           allowMaximize={false}
         >
           <PlayWrapper>
-            <FeaturedCard data={data} index={index} fade={fade} />
-            <ButtonWrapper>
+            <FeaturedCard data={data} index={index} fade={fade} flip={flip} />
+            <PlayButtonWrapper>
               <LinkButton onClick={flipCard}>
                 <Flip />
               </LinkButton>
@@ -84,7 +84,7 @@ const Featured = (constraintsRef) => {
               >
                 <ExternalLink />
               </LinkButton>
-            </ButtonWrapper>
+            </PlayButtonWrapper>
           </PlayWrapper>
         </Window>
       )}
@@ -148,7 +148,7 @@ const NavButton = styled.button`
   }
 `;
 
-const ButtonWrapper = styled.div`
+const PlayButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
