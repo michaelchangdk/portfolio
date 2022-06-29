@@ -10,6 +10,12 @@ export default {
       type: "string",
     },
     {
+      name: "emoji",
+      title: "Emoji icon",
+      type: "string",
+      description: "Just one emoji!",
+    },
+    {
       name: "image",
       title: "Image",
       type: "image",
