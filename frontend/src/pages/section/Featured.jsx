@@ -23,6 +23,7 @@ const Featured = (constraintsRef) => {
 
   const incrementCarousel = (array) => {
     setFade(true);
+    setFlip(false);
     if (index === array.length - 1) {
       setIndex(0);
     }
@@ -33,6 +34,7 @@ const Featured = (constraintsRef) => {
 
   const decrementCarousel = (array) => {
     setFade(true);
+    setFlip(false);
     if (index === 0) {
       setIndex(array.length - 1);
     }

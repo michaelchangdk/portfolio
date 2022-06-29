@@ -49,12 +49,20 @@ const FeaturedCard = (props) => {
         scale: [1, 1],
         transition: { duration: 0.8, times: [0, 0.2, 1] },
       }));
-    } else if (!fade) {
-      controlImageFade.start(() => ({
-        opacity: [1, 0.2],
-        transition: { duration: 0.8, times: [0, 0.2, 1] },
+      controlDescription.start(() => ({
+        scale: [1, 0],
+        transition: { duration: 0.01 },
       }));
     }
+    // else if (!fade) {
+    // controlImageFade.start(() => ({
+    //   opacity: [1, 0.2],
+    //   transition: { duration: 0.8, times: [0, 0.2, 1] },
+    // }));
+    // controlDescription.start(() => ({
+    //   scale: [0, 1],
+    // }));
+    // }
   });
 
   return (
