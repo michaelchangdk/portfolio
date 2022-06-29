@@ -8,7 +8,7 @@ import styled from "styled-components/macro";
 import { LinkButton } from "../../styles/global";
 import { MusicPlayerFill } from "@styled-icons/bootstrap/MusicPlayerFill";
 import { ExternalLink } from "@styled-icons/heroicons-outline/ExternalLink";
-import { Github } from "@styled-icons/entypo-social/Github";
+import { GithubOutline } from "@styled-icons/evaicons-outline/GithubOutline";
 import { SkipPrevious } from "@styled-icons/material-rounded/SkipPrevious";
 import { SkipNext } from "@styled-icons/material-rounded/SkipNext";
 import { Flip } from "@styled-icons/material/Flip";
@@ -61,19 +61,19 @@ const Featured = (constraintsRef) => {
           <PlayWrapper>
             <FeaturedCard data={data} index={index} fade={fade} flip={flip} />
             <PlayButtonWrapper>
-              <LinkButton onClick={flipCard}>
-                <Flip />
+              <LinkButton
+                onClick={() =>
+                  window.open(`${data[0].featured[index].github}`, "_blank")
+                }
+              >
+                <GithubOutline />
               </LinkButton>
               <CarouselNavWrapper>
                 <NavButton onClick={() => decrementCarousel(data[0].featured)}>
                   <SkipPrevious />
                 </NavButton>
-                <CenterButton
-                  onClick={() =>
-                    window.open(`${data[0].featured[index].github}`, "_blank")
-                  }
-                >
-                  <Github />
+                <CenterButton onClick={flipCard}>
+                  <Flip />
                 </CenterButton>
                 <NavButton onClick={() => incrementCarousel(data[0].featured)}>
                   <SkipNext />
@@ -122,7 +122,7 @@ const CenterButton = styled.button`
   border-right: 4px solid #6c757d;
   border-bottom: 4px solid #6c757d;
   :active {
-    padding: 2px;
+    padding: 4px;
     border-left: 4px solid #6c757d;
     border-top: 4px solid #6c757d;
     border-right: 4px solid #e9ecef;

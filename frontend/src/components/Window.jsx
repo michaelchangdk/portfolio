@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+// Styling Imports
+import styled from "styled-components/macro";
 import {
   H1,
   WindowWrapper,
@@ -8,12 +10,14 @@ import {
   WindowContent,
   RaisedWindowButton,
 } from "../styles/global";
-import styled from "styled-components/macro";
+// Function Imports
+// import { useWindowSize } from "../helpers/hooks";
 
 const Window = (props) => {
   const [close, setClose] = useState(false);
   const [expand, setExpand] = useState(false);
   const [minimize, setMinimize] = useState(false);
+  // const window = useWindowSize();
 
   const variants = {
     visible: { scale: 1, opacity: 1 },
@@ -45,6 +49,7 @@ const Window = (props) => {
       variants={variants}
       animate={close ? "hidden" : "visible"}
       layout
+      // drag={window.width > 600 ? true : false}
       // drag="y"
       transition={{ layout: { duration: 0.1 } }}
     >

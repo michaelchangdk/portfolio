@@ -127,7 +127,7 @@ export const WindowWrapper = styled(motion.div)`
   /* width: ${(props) =>
     props.expand ? "100%" : props.minimize ? "324px" : "90%"}; */
   width: ${(props) => (props.expand ? "100%" : "90%")};
-  max-width: ${(props) => (props.expand ? "100%" : "800px")};
+  max-width: ${(props) => (props.expand ? "100%" : "500px")};
   min-height: ${(props) => (props.expand ? "100vh" : "auto")};
   height: ${(props) => (props.expand ? "100%" : "auto")};
   /* display: ${(props) => (props.exit ? "none" : "flex")}; */
@@ -244,10 +244,10 @@ export const ContactCard = styled.div`
   max-width: 900px;
   margin: 0 auto;
 
-  @media (min-width: 600px) {
+  /* @media (min-width: 600px) {
     grid-template-columns: 0.6fr 1fr;
     grid-template-rows: auto auto;
-  }
+  } */
 `;
 
 export const ContactTextWrapper = styled.div`
@@ -256,12 +256,12 @@ export const ContactTextWrapper = styled.div`
   justify-content: space-between;
   gap: 16px;
 
-  @media (min-width: 600px) {
+  /* @media (min-width: 600px) {
     grid-row-start: 1;
     grid-row-end: 3;
     grid-column-start: 2;
     grid-column-end: 2;
-  }
+  } */
 `;
 
 export const ContactSocialWrapper = styled.div`
@@ -278,8 +278,8 @@ export const ContactSocialWrapper = styled.div`
   border-radius: 4px;
   max-height: 66px;
 
-  @media (min-width: 600px) {
+  /* @media (min-width: 600px) {
     grid-column-start: 1;
     grid-column-end: 1;
-  }
+  } */
 `;

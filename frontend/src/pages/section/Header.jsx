@@ -14,7 +14,7 @@ import {
   ContactTextWrapper,
   ContactSocialWrapper,
 } from "../../styles/global";
-import { Github } from "@styled-icons/entypo-social/Github";
+import { GithubOutline } from "@styled-icons/evaicons-outline/GithubOutline";
 import { Linkedin } from "@styled-icons/evaicons-solid/Linkedin";
 import { MailSend } from "@styled-icons/boxicons-regular/MailSend";
 import { Medium } from "@styled-icons/simple-icons/Medium";
@@ -42,13 +42,6 @@ const Header = (constraintsRef) => {
         <ContactSocialWrapper>
           <LinkButton
             onClick={() =>
-              window.open("https://github.com/michaelchangdk", "_blank")
-            }
-          >
-            <Github />
-          </LinkButton>
-          <LinkButton
-            onClick={() =>
               window.open(
                 "https://www.linkedin.com/in/michaelchangdk/",
                 "_blank"
@@ -56,6 +49,13 @@ const Header = (constraintsRef) => {
             }
           >
             <Linkedin />
+          </LinkButton>
+          <LinkButton
+            onClick={() =>
+              window.open("https://github.com/michaelchangdk", "_blank")
+            }
+          >
+            <GithubOutline />
           </LinkButton>
           <LinkButton
             onClick={() =>

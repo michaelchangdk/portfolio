@@ -20,8 +20,6 @@ const FeaturedCard = (props) => {
     },
   };
 
-  console.log("fade", fade, "flip", flip);
-
   useEffect(() => {
     if (!fade & flip) {
       controlImageFade.start(() => ({
