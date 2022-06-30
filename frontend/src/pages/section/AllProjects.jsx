@@ -116,7 +116,7 @@ const TableData = styled.td`
 `;
 
 const EmojiSize = styled.span`
-  font-size: 18px;
+  font-size: 20px;
 `;
 
 const DataItemWrapper = styled.div`
