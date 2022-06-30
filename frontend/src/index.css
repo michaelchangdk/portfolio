@@ -142,3 +142,65 @@ table {
 @import url("https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap");
 /* Font Import 'Source Code Pro', monospace; fw 300 400 500 600*/
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600&display=swap");
+
+/* Table Styling */
+table th + th {
+  border-left: 1px solid #343a40;
+}
+
+table td + td {
+  border-left: 1px solid #343a40;
+}
+
+div ::-webkit-scrollbar {
+  height: 24px;
+}
+/* the scrollbar. */
+/* ::-webkit-scrollbar-button {
+  background-size: 100%;
+  height: 10px;
+  width: 10px;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+} */
+/* ::-webkit-scrollbar-button:horizontal:increment {
+  background-image: url(https://dl.dropboxusercontent.com/u/55165267/icon2.png);
+}
+
+::-webkit-scrollbar-button:horizontal:decrement {
+  background-image: url(https://dl.dropboxusercontent.com/u/55165267/icon4.png);
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+  background-image: url(https://dl.dropboxusercontent.com/u/55165267/icon3.png);
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url(https://dl.dropboxusercontent.com/u/55165267/icon.png);
+} */
+/* the buttons on the scrollbar (arrows pointing upwards and downwards). */
+div ::-webkit-scrollbar-thumb {
+  background: rgb(206, 212, 218);
+  background: linear-gradient(
+    180deg,
+    rgba(206, 212, 218, 1) 0%,
+    rgba(108, 117, 125, 1) 100%
+  );
+  border-top: 1px solid #343a40;
+  border-left: 1px solid #343a40;
+  border-right: 1px solid #343a40;
+  border-bottom: none;
+}
+/* the draggable scrolling handle. */
+div ::-webkit-scrollbar-track {
+  background: #dee2e6;
+}
+/* the track (progress bar) of the scrollbar. */
+div ::-webkit-scrollbar-track-piece {
+  background: #dee2e6;
+  border-top: 1px solid #343a40;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+/* the track (progress bar) NOT covered by the handle. */
