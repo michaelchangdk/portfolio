@@ -51,7 +51,9 @@ const AllProjects = (constraintsRef) => {
                     {format(new Date(project.published), "dd/MM/yyyy")}
                   </TableData>
                   <TableData>
-                    {project.stack.map((item) => `${item}, `)}
+                    <TableText>
+                      {project.stack.map((item) => `${item}, `)}
+                    </TableText>
                   </TableData>
                   <TableData>
                     <DataItemWrapper>
@@ -72,6 +74,7 @@ export default AllProjects;
 
 const BorderDiv = styled.div`
   border: 1px solid #343a40;
+  background-color: #f8f9fa;
 `;
 
 const ScrollMenu = styled.div`
@@ -109,6 +112,7 @@ const TableHeaderButton = styled.button`
     rgba(255, 255, 255, 1) 0%,
     rgba(206, 212, 218, 1) 100%
   );
+  color: #212529;
 `;
 
 const TableData = styled.td`
@@ -117,6 +121,13 @@ const TableData = styled.td`
 
 const EmojiSize = styled.span`
   font-size: 20px;
+`;
+
+const TableText = styled.p`
+  text-align: left;
+  font-family: "Prompt", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
 `;
 
 const DataItemWrapper = styled.div`
