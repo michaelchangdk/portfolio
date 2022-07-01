@@ -123,7 +123,7 @@ const EmojiSize = styled.span`
   font-size: 20px;
 `;
 
-const TableText = styled.p`
+const TableText = styled.span`
   text-align: left;
   font-family: "Prompt", sans-serif;
   font-weight: 300;
