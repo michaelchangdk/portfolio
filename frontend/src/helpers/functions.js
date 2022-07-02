@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styled from "styled-components/macro";
 
 // Used in Featured
 export const tagsFeaturing = (array) => {
@@ -19,6 +20,11 @@ export const tagsFeaturing = (array) => {
 
 // Used in AllProjects
 export const joinString = (array) => {
+  const TableParagraph = styled.p`
+    font-family: "Prompt", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+  `;
   let string = "";
   for (let i = 0; i < array.length; i++) {
     if (i === array.length - 1) {
@@ -27,7 +33,7 @@ export const joinString = (array) => {
       string += `${array[i]}, `;
     }
   }
-  return string;
+  return <TableParagraph>{string}</TableParagraph>;
 };
 
 // Used in AllProjects
