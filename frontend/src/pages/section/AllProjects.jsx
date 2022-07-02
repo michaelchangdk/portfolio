@@ -38,90 +38,86 @@ const AllProjects = (constraintsRef) => {
       icon={FileTrayFull}
       allowMaximize={true}
     >
-      <BorderDiv>
-        <ScrollMenu>
-          <FileTable>
-            <thead>
-              <tr>
-                <TableHeader>
-                  <TableHeaderButton
-                    onClick={() => sortByTitle()}
-                    selected={titleSelect}
-                    pointer="cursor"
-                  >
-                    <SpaceBetween>
-                      Project Name
-                      {titleSelect && titleSort ? <DownArrow /> : ""}
-                      {titleSelect && !titleSort ? <UpArrow /> : ""}
-                    </SpaceBetween>
-                  </TableHeaderButton>
-                </TableHeader>
-                <TableHeader>
-                  <TableHeaderButton
-                    onClick={sortByDate}
-                    selected={dateSelect}
-                    pointer="cursor"
-                  >
-                    <SpaceBetween>
-                      Date
-                      {dateSelect && dateSort ? <DownArrow /> : ""}
-                      {dateSelect && !dateSort ? <UpArrow /> : ""}
-                    </SpaceBetween>
-                  </TableHeaderButton>
-                </TableHeader>
-                <TableHeader>
-                  <TableHeaderButton>Tags</TableHeaderButton>
-                </TableHeader>
-                <TableHeader>
-                  <TableHeaderButton>File</TableHeaderButton>
-                </TableHeader>
-                <TableHeader>
-                  <TableHeaderButton>View</TableHeaderButton>
-                </TableHeader>
-              </tr>
-            </thead>
-            <tbody>
-              {!loading &&
-                sortedProjects.map((project) => (
-                  <motion.tr key={project._id} layout>
-                    <TableData>
-                      <EmojiSpan>{project.emoji}</EmojiSpan> {project.title}
-                    </TableData>
-                    <TableData>
-                      {format(new Date(project.published), "dd/MM/yyyy")}
-                    </TableData>
-                    <TableData>
-                      <P weight={300} size="14px">
-                        {joinString(project.stack)}
-                      </P>
-                    </TableData>
-                    <TableData>
-                      <GithubIcon />
-                    </TableData>
-                    <TableData>
-                      <LiveIcon />
-                    </TableData>
-                  </motion.tr>
-                ))}
-            </tbody>
-          </FileTable>
-        </ScrollMenu>
-      </BorderDiv>
+      <BorderScrollDiv>
+        <FileTable>
+          <thead>
+            <tr>
+              <TableHeader>
+                <TableHeaderButton
+                  onClick={() => sortByTitle()}
+                  selected={titleSelect}
+                  pointer="cursor"
+                >
+                  <SpaceBetween>
+                    Project Name
+                    {titleSelect && titleSort ? <DownArrow /> : ""}
+                    {titleSelect && !titleSort ? <UpArrow /> : ""}
+                  </SpaceBetween>
+                </TableHeaderButton>
+              </TableHeader>
+              <TableHeader>
+                <TableHeaderButton
+                  onClick={sortByDate}
+                  selected={dateSelect}
+                  pointer="cursor"
+                >
+                  <SpaceBetween>
+                    Date
+                    {dateSelect && dateSort ? <DownArrow /> : ""}
+                    {dateSelect && !dateSort ? <UpArrow /> : ""}
+                  </SpaceBetween>
+                </TableHeaderButton>
+              </TableHeader>
+              <TableHeader>
+                <TableHeaderButton>Tags</TableHeaderButton>
+              </TableHeader>
+              <TableHeader>
+                <TableHeaderButton>File</TableHeaderButton>
+              </TableHeader>
+              <TableHeader>
+                <TableHeaderButton>View</TableHeaderButton>
+              </TableHeader>
+            </tr>
+          </thead>
+          <tbody>
+            {!loading &&
+              sortedProjects.map((project) => (
+                <motion.tr key={project._id} layout>
+                  <TableData>
+                    <EmojiSpan>{project.emoji}</EmojiSpan> {project.title}
+                  </TableData>
+                  <TableData>
+                    {format(new Date(project.published), "dd/MM/yyyy")}
+                  </TableData>
+                  <TableData>
+                    <P weight={300} size="14px">
+                      {joinString(project.stack)}
+                    </P>
+                  </TableData>
+                  <TableData>
+                    <GithubIcon />
+                  </TableData>
+                  <TableData>
+                    <LiveIcon />
+                  </TableData>
+                </motion.tr>
+              ))}
+          </tbody>
+        </FileTable>
+      </BorderScrollDiv>
     </Window>
   );
 };
 
 export default AllProjects;
 
-const BorderDiv = styled.div`
+const BorderScrollDiv = styled.div`
   border: 1px solid #343a40;
   background-color: #f8f9fa;
-`;
-
-const ScrollMenu = styled.div`
   overflow: auto;
   white-space: nowrap;
-  /* overflow-y: hidden; */
+  overflow-y: scroll;
+  overflow-x: scroll;
   max-height: 80vh;
 `;
 
@@ -134,6 +130,7 @@ const FileTable = styled.table`
   font-weight: 300;
   font-size: 14px;
   background-color: #f8f9fa;
+  max-height: 80vh;
 `;
 
 const TableHeader = styled.th`
