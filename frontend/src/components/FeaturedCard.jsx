@@ -16,7 +16,7 @@ const FeaturedCard = (props) => {
 
   const descriptionVariants = {
     hidden: {
-      opacity: 0,
+      rotateY: 180,
     },
   };
 
@@ -29,31 +29,31 @@ const FeaturedCard = (props) => {
         // opacity: [1, 0, 0],
         // rotateY: [0, -180],
         // transition: { duration: 1, times: [0, 0.5, 1] },
-        opacity: [1, 0, 0],
-        rotateY: [0, -180, -180],
-        transition: { duration: 1, times: [0, 0.5, 1] },
+        // opacity: [1, 0,],
+        rotateY: [0, -180],
+        transition: { duration: 1 },
       }));
       controlImageFade.start(() => ({
         // opacity: [0, 1],
         // rotateY: [-180, 0],
         // transition: { duration: 1, times: [0, 0.5, 1] },
-        opacity: [0, 1],
-        rotateY: [-90, 0],
-        transition: { duration: 1, times: [0, 1] },
+        // opacity: [0, 1],
+        rotateY: [-180, 0],
+        transition: { duration: 1 },
       }));
       // Flipping card
     } else if (!fade & flip) {
       controlDescription.start(() => ({
         // scale: [1, 1, 1],
         opacity: [0, 1],
-        rotateY: [-90, 0],
-        transition: { duration: 1, times: [0, 1] },
+        rotateY: [-180, 0],
+        transition: { duration: 1 },
         // transition: { duration: 0.8, times: [0, 0.2, 1] },
       }));
       controlImageFade.start(() => ({
-        opacity: [1, 0, 0],
-        rotateY: [0, -180, -180],
-        transition: { duration: 1, times: [0, 0.5, 1] },
+        // opacity: [1, 0],
+        rotateY: [0, -180],
+        transition: { duration: 1 },
         // transition: { duration: 0.8, times: [0, 0.2, 1] },
       }));
       // Next card state:
@@ -65,7 +65,7 @@ const FeaturedCard = (props) => {
       controlImageFade.start(() => ({
         rotateY: [0, 0],
         opacity: [0, 1],
-        scale: [1, 1],
+        // scale: [1, 1],
         // transition: { duration: 0.8, times: [0, 0.2, 1] },
       }));
       controlDescription.start(() => ({
@@ -94,24 +94,28 @@ const FeaturedCard = (props) => {
           // gap="16px"
           padding="0px"
         >
-          <DescriptionWrapper
-            variants={descriptionVariants}
-            initial="hidden"
-            animate={controlDescription}
-          >
-            <DescriptionParagraph
-              variants={descriptionVariants}
-              initial="hidden"
-              animate={controlDescription}
-            >
-              {data[0].featured[index].description}
-            </DescriptionParagraph>
-          </DescriptionWrapper>
-          <FeaturedImage
-            src={urlFor(data[0].featured[index].image.asset._ref)}
-            alt={data[0].featured[index].title}
-            animate={controlImageFade}
-          />
+          <Scene>
+            <Card>
+              <DescriptionWrapper
+                variants={descriptionVariants}
+                initial="hidden"
+                animate={controlDescription}
+              >
+                <DescriptionParagraph
+                  variants={descriptionVariants}
+                  initial="hidden"
+                  animate={controlDescription}
+                >
+                  {data[0].featured[index].description}
+                </DescriptionParagraph>
+              </DescriptionWrapper>
+              <FeaturedImage
+                src={urlFor(data[0].featured[index].image.asset._ref)}
+                alt={data[0].featured[index].title}
+                animate={controlImageFade}
+              />
+            </Card>
+          </Scene>
         </RecessedWrapper>
         <TitleTechWrapper animate={controlTextFade}>
           <H2 weight={400}>{data[0].featured[index].title}</H2>
@@ -126,10 +130,6 @@ const FeaturedCard = (props) => {
 
 export default FeaturedCard;
 
-const FeaturedImage = styled(motion.img)`
-  width: 100%;
-`;
-
 const TitleTechWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
@@ -138,7 +138,29 @@ const TitleTechWrapper = styled(motion.div)`
   height: 60px;
 `;
 
+const Scene = styled.div`
+  width: 100%;
+  height: 100%;
+  perspective: -100px;
+`;
+
+const Card = styled(motion.div)`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  /* transition: transform 1s; */
+`;
+
+const FeaturedImage = styled(motion.img)`
+  /* position: absolute; */
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+`;
+
 const DescriptionWrapper = styled(motion.div)`
+  backface-visibility: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
