@@ -2,15 +2,15 @@ import React from "react";
 import { motion } from "framer-motion";
 // Function imports
 import { FetchSection } from "../../services/clientFunctions";
-import { joinString, SortTable } from "../../helpers/functions";
+import { SortTable } from "../../helpers/functions";
 // Component Import
 import Window from "../../components/Window";
 // Styling and Asset Imports
 import styled from "styled-components/macro";
-import { SpaceBetween, P } from "../../styles/global";
+import { SpaceBetween } from "../../styles/global";
 import { FileTrayFull } from "@styled-icons/ionicons-solid/FileTrayFull";
-import { ExternalLink } from "@styled-icons/heroicons-outline/ExternalLink";
-import { GithubOutline } from "@styled-icons/evaicons-outline/GithubOutline";
+// import { ExternalLink } from "@styled-icons/heroicons-outline/ExternalLink";
+// import { GithubOutline } from "@styled-icons/evaicons-outline/GithubOutline";
 import { TriangleDown } from "@styled-icons/octicons/TriangleDown";
 import { TriangleUp } from "@styled-icons/octicons/TriangleUp";
 // Query Declaration
@@ -174,14 +174,14 @@ const UpArrow = styled(TriangleUp)`
   width: 16px;
 `;
 
-const GithubIcon = styled(GithubOutline)`
-  width: 20px;
-  height: 20px;
-  color: #212529;
-`;
+// const GithubIcon = styled(GithubOutline)`
+//   width: 20px;
+//   height: 20px;
+//   color: #212529;
+// `;
 
-const LiveIcon = styled(ExternalLink)`
-  width: 20px;
-  height: 20px;
-  color: #212529;
-`;
+// const LiveIcon = styled(ExternalLink)`
+//   width: 20px;
+//   height: 20px;
+//   color: #212529;
+// `;

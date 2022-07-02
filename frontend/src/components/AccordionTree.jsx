@@ -5,11 +5,21 @@ import {
   TreeHeader,
   TreeButton,
   TreeIcon,
-  TreeChild,
+  TreeBody,
 } from "../styles/global";
 
 const AccordionTree = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const items = props.items;
+
+  const variants = {
+    open: {
+      opacity: 1,
+      height: "auto",
+      transition: { staggerChildren: 0.3 },
+    },
+    collapsed: { opacity: 0, height: 0 },
+  };
 
   useEffect(() => {
     if (props.defaultOpen) {
@@ -19,30 +29,39 @@ const AccordionTree = (props) => {
 
   return (
     <>
-      <TreeHeader onClick={() => setIsOpen(!isOpen)} disabled={props.disabled}>
-        {!props.disabled && <TreeButton>{isOpen ? "-" : "+"}</TreeButton>}
-        {props.disabled && <TreeIcon>·</TreeIcon>}
+      <TreeHeader onClick={() => setIsOpen(!isOpen)} variants={variants}>
+        {<TreeButton>{isOpen ? "-" : "+"}</TreeButton>}
         <H2SourceCode>{props.title}</H2SourceCode>
       </TreeHeader>
-      {!props.disabled && (
-        <AnimatePresence initial={false}>
-          {isOpen && (
-            <TreeChild
-              key="content"
-              initial="collapsed"
-              animate="open"
-              exit="collapsed"
-              variants={{
-                open: { opacity: 1, height: "auto" },
-                collapsed: { opacity: 0, height: 0 },
-              }}
-              transition={{ duration: 0.4 }}
-            >
-              {props.children}
-            </TreeChild>
-          )}
-        </AnimatePresence>
-      )}
+      <AnimatePresence initial={false}>
+        {!items & isOpen && (
+          <TreeBody
+            // key="content"
+            initial="collapsed"
+            animate="open"
+            exit="collapsed"
+            variants={variants}
+          >
+            {props.children}
+          </TreeBody>
+        )}
+        {!!items & isOpen && (
+          <TreeBody
+            // key="content"
+            initial="collapsed"
+            animate="open"
+            exit="collapsed"
+            variants={variants}
+          >
+            {items.map((item) => (
+              <TreeHeader key={item} variants={variants}>
+                <TreeIcon>·</TreeIcon>
+                <H2SourceCode>{item}</H2SourceCode>
+              </TreeHeader>
+            ))}
+          </TreeBody>
+        )}
+      </AnimatePresence>
     </>
   );
 };

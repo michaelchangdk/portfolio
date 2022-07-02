@@ -20,8 +20,6 @@ const FeaturedCard = (props) => {
     },
   };
 
-  console.log("fade", fade, "flip", flip);
-
   useEffect(() => {
     // Initial state
     if (!fade & !flip) {
@@ -57,15 +55,6 @@ const FeaturedCard = (props) => {
         opacity: [0, 0],
       }));
     }
-    // else if (!fade) {
-    // controlImageFade.start(() => ({
-    //   opacity: [1, 0.2],
-    //   transition: { duration: 0.8, times: [0, 0.2, 1] },
-    // }));
-    // controlDescription.start(() => ({
-    //   scale: [0, 1],
-    // }));
-    // }
   });
 
   return (

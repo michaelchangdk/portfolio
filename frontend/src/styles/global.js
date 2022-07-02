@@ -238,7 +238,7 @@ export const TreeIcon = styled.div`
   justify-content: center;
 `;
 
-export const TreeChild = styled(motion.section)`
+export const TreeBody = styled(motion.section)`
   display: flex;
   flex-direction: column;
   margin-left: 9px;
