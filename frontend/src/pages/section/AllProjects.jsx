@@ -121,6 +121,7 @@ const BorderScrollDiv = styled.div`
   max-height: 80vh; */
   overflow: clip;
   padding: 0;
+  overscroll-behavior: none none;
 `;
 
 const FileTable = styled.table`
@@ -137,6 +138,7 @@ const FileTable = styled.table`
   overflow-x: scroll;
   overflow-y: scroll;
   white-space: nowrap;
+  overscroll-behavior: none none;
 `;
 
 const TableHeader = styled.th`
