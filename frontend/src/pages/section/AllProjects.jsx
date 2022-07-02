@@ -83,7 +83,11 @@ const AllProjects = (constraintsRef) => {
                   <TableData>
                     {format(new Date(project.published), "dd/MM/yyyy")}
                   </TableData>
-                  <TableData>{joinString(project.stack)}</TableData>
+                  <TableData>
+                    <TableDataTypography>
+                      {joinString(project.stack)}
+                    </TableDataTypography>
+                  </TableData>
                   <TableData>
                     <GithubIcon />
                   </TableData>
@@ -146,6 +150,9 @@ const TableHeaderButton = styled.button`
 
 const TableData = styled.td`
   padding: 4px 8px;
+`;
+
+const TableDataTypography = styled.p`
   font-family: "Prompt", sans-serif;
   font-weight: 300;
   font-size: 14px;
