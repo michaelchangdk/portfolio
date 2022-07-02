@@ -131,7 +131,7 @@ const FileTable = styled.table`
   font-size: 14px;
   background-color: #f8f9fa;
   display: block;
-  max-height: 80vh;
+  max-height: 70vh;
   overflow: hidden;
   overflow-x: auto;
   overflow-y: auto;

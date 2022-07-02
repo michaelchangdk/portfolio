@@ -26,28 +26,34 @@ const FeaturedCard = (props) => {
     // Initial state
     if (!fade & !flip) {
       controlDescription.start(() => ({
-        opacity: [1, 0],
-        rotateY: [0, -180],
-        transition: { duration: 1 },
+        // opacity: [1, 0, 0],
+        // rotateY: [0, -180],
+        // transition: { duration: 1, times: [0, 0.5, 1] },
+        opacity: [1, 0, 0],
+        rotateY: [0, -180, -180],
+        transition: { duration: 1, times: [0, 0.5, 1] },
       }));
       controlImageFade.start(() => ({
+        // opacity: [0, 1],
+        // rotateY: [-180, 0],
+        // transition: { duration: 1, times: [0, 0.5, 1] },
         opacity: [0, 1],
-        rotateY: [-180, 0],
-        transition: { duration: 0.8 },
+        rotateY: [-90, 0],
+        transition: { duration: 1, times: [0, 1] },
       }));
       // Flipping card
     } else if (!fade & flip) {
       controlDescription.start(() => ({
-        scale: [1, 1],
-        rotateY: [-180, 0],
+        // scale: [1, 1, 1],
         opacity: [0, 1],
-        transition: { duration: 1 },
+        rotateY: [-90, 0],
+        transition: { duration: 1, times: [0, 1] },
         // transition: { duration: 0.8, times: [0, 0.2, 1] },
       }));
       controlImageFade.start(() => ({
-        opacity: [1, 0],
-        rotateY: [0, -180],
-        transition: { duration: 0.8 },
+        opacity: [1, 0, 0],
+        rotateY: [0, -180, -180],
+        transition: { duration: 1, times: [0, 0.5, 1] },
         // transition: { duration: 0.8, times: [0, 0.2, 1] },
       }));
       // Next card state:
@@ -63,8 +69,9 @@ const FeaturedCard = (props) => {
         // transition: { duration: 0.8, times: [0, 0.2, 1] },
       }));
       controlDescription.start(() => ({
-        scale: [1, 0],
-        transition: { duration: 0.01 },
+        // scale: [1, 0],
+        opacity: [0, 0],
+        // transition: { duration: 0.01 },
       }));
     }
     // else if (!fade) {
@@ -142,7 +149,7 @@ const DescriptionWrapper = styled(motion.div)`
   right: 0;
   top: 0;
   padding: 24px;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 1);
 `;
 
 const DescriptionParagraph = styled(motion.p)`
