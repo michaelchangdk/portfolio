@@ -79,7 +79,7 @@ const AllProjects = (constraintsRef) => {
               </TableHeader>
             </tr>
           </thead>
-          <tbody>
+          <TableBody>
             {!loading &&
               sortedProjects.map((project) => (
                 <motion.tr key={project._id} layout>
@@ -102,7 +102,7 @@ const AllProjects = (constraintsRef) => {
                   </TableData>
                 </motion.tr>
               ))}
-          </tbody>
+          </TableBody>
         </FileTable>
       </BorderScrollDiv>
     </Window>
@@ -114,11 +114,11 @@ export default AllProjects;
 const BorderScrollDiv = styled.div`
   border: 1px solid #343a40;
   background-color: #f8f9fa;
-  overflow: hidden;
+  /* overflow: hidden;
   overflow-y: auto;
   overflow-x: auto;
   white-space: nowrap;
-  max-height: 80vh;
+  max-height: 80vh; */
 `;
 
 const FileTable = styled.table`
@@ -130,12 +130,25 @@ const FileTable = styled.table`
   font-weight: 300;
   font-size: 14px;
   background-color: #f8f9fa;
+  display: block;
   max-height: 80vh;
+  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: auto;
+  white-space: nowrap;
 `;
 
 const TableHeader = styled.th`
   position: sticky;
   top: 0;
+`;
+
+const TableBody = styled.tbody`
+  /* display: block;
+  max-height: 80vh;
+  overflow: hidden;
+  overflow-y: auto;
+  white-space: nowrap; */
 `;
 
 const TableHeaderButton = styled.button`

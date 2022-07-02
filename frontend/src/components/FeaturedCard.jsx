@@ -28,24 +28,26 @@ const FeaturedCard = (props) => {
       controlDescription.start(() => ({
         opacity: [1, 0],
         rotateY: [0, -180],
-        // transition: { duration: 0.8, times: [0, 0.2, 1] },
+        transition: { duration: 1 },
       }));
       controlImageFade.start(() => ({
         opacity: [0, 1],
         rotateY: [-180, 0],
-        // transition: { duration: 0.8, times: [0, 0.2, 1] },
+        transition: { duration: 0.8 },
       }));
       // Flipping card
     } else if (!fade & flip) {
       controlDescription.start(() => ({
         scale: [1, 1],
-        opacity: [0, 1],
         rotateY: [-180, 0],
+        opacity: [0, 1],
+        transition: { duration: 1 },
         // transition: { duration: 0.8, times: [0, 0.2, 1] },
       }));
       controlImageFade.start(() => ({
         opacity: [1, 0],
         rotateY: [0, -180],
+        transition: { duration: 0.8 },
         // transition: { duration: 0.8, times: [0, 0.2, 1] },
       }));
       // Next card state:
