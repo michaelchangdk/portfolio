@@ -83,9 +83,7 @@ const AllProjects = (constraintsRef) => {
                   <TableData>
                     {format(new Date(project.published), "dd/MM/yyyy")}
                   </TableData>
-                  <TableData>
-                    <TableSpan>{joinString(project.stack)}</TableSpan>
-                  </TableData>
+                  <TableData>{joinString(project.stack)}</TableData>
                   <TableData>
                     <GithubIcon />
                   </TableData>
@@ -148,18 +146,21 @@ const TableHeaderButton = styled.button`
 
 const TableData = styled.td`
   padding: 4px 8px;
+  font-family: "Prompt", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
 `;
 
 const EmojiSpan = styled.span`
   font-size: 20px;
 `;
 
-const TableSpan = styled.span`
-  text-align: left;
-  font-family: "Prompt", sans-serif;
-  font-weight: 300;
-  font-size: 14px;
-`;
+// const TableSpan = styled.span`
+//   text-align: left;
+//   font-family: "Prompt", sans-serif;
+//   font-weight: 300;
+//   font-size: 14px;
+// `;
 
 const DownArrow = styled(TriangleDown)`
   height: 16px;
