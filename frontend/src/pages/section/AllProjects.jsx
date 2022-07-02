@@ -114,10 +114,11 @@ export default AllProjects;
 const BorderScrollDiv = styled.div`
   border: 1px solid #343a40;
   background-color: #f8f9fa;
-  overflow: auto;
-  white-space: nowrap;
+  overflow: hidden;
   overflow-y: scroll;
   overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
   max-height: 80vh;
 `;
 
