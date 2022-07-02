@@ -6,7 +6,7 @@ import { joinString, SortTable } from "../../helpers/functions";
 import Window from "../../components/Window";
 // Styling and Asset Imports
 import styled from "styled-components/macro";
-import { SpaceBetween } from "../../styles/global";
+import { SpaceBetween, P } from "../../styles/global";
 import { FileTrayFull } from "@styled-icons/ionicons-solid/FileTrayFull";
 import { ExternalLink } from "@styled-icons/heroicons-outline/ExternalLink";
 import { GithubOutline } from "@styled-icons/evaicons-outline/GithubOutline";
@@ -84,9 +84,9 @@ const AllProjects = (constraintsRef) => {
                     {format(new Date(project.published), "dd/MM/yyyy")}
                   </TableData>
                   <TableData>
-                    <TableDataTypography>
+                    <P weight={300} size="14px">
                       {joinString(project.stack)}
-                    </TableDataTypography>
+                    </P>
                   </TableData>
                   <TableData>
                     <GithubIcon />
@@ -152,22 +152,9 @@ const TableData = styled.td`
   padding: 4px 8px;
 `;
 
-const TableDataTypography = styled.p`
-  font-family: "Prompt", sans-serif;
-  font-weight: 300;
-  font-size: 14px;
-`;
-
 const EmojiSpan = styled.span`
   font-size: 20px;
 `;
-
-// const TableSpan = styled.span`
-//   text-align: left;
-//   font-family: "Prompt", sans-serif;
-//   font-weight: 300;
-//   font-size: 14px;
-// `;
 
 const DownArrow = styled(TriangleDown)`
   height: 16px;

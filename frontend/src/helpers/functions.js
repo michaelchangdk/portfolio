@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-// Used in featured projects
+// Used in Featured
 export const tagsFeaturing = (array) => {
   let string = "";
   for (let i = 0; i < array.length; i++) {

@@ -150,6 +150,9 @@ table th + th {
 
 table td + td {
   border-left: 1px solid #343a40;
+  border-right: none;
+  border-bottom: none;
+  border-top: none;
 }
 
 /* Custom Scrollbar CSS */
