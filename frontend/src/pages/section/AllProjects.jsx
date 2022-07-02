@@ -79,7 +79,7 @@ const AllProjects = (constraintsRef) => {
               </TableHeader> */}
             </tr>
           </thead>
-          <tbody>
+          <TableBody>
             {!loading &&
               sortedProjects.map((project) => (
                 <motion.tr key={project._id} layout>
@@ -87,7 +87,7 @@ const AllProjects = (constraintsRef) => {
                     <EmojiSpan>{project.emoji}</EmojiSpan> {project.title}
                   </TableData>
                   <TableData>
-                    {format(new Date(project.published), "dd/MM/yyyy")}
+                    {format(new Date(project.published), "dd/MM/yy")}
                   </TableData>
                   {/* <TableData>
                     <P weight={300} size="14px">
@@ -102,7 +102,7 @@ const AllProjects = (constraintsRef) => {
                   </TableData> */}
                 </motion.tr>
               ))}
-          </tbody>
+          </TableBody>
         </FileTable>
       </BorderScrollDiv>
     </Window>
@@ -114,12 +114,12 @@ export default AllProjects;
 const BorderScrollDiv = styled.div`
   border: 1px solid #343a40;
   background-color: #ced4da;
-  overflow: hidden;
+  /* overflow: hidden;
   overflow-x: auto;
   overflow-y: auto;
   white-space: nowrap;
   max-height: 70vh;
-  overscroll-behavior: none;
+  overscroll-behavior: none; */
 `;
 
 const FileTable = styled.table`
@@ -134,6 +134,16 @@ const FileTable = styled.table`
 const TableHeader = styled.th`
   position: sticky;
   top: 0;
+`;
+
+const TableBody = styled.tbody`
+  /* display: block;
+  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: auto;
+  white-space: nowrap;
+  height: 50vh;
+  overscroll-behavior: none; */
 `;
 
 const TableHeaderButton = styled.button`
