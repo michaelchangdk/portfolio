@@ -46,6 +46,7 @@ const AllProjects = (constraintsRef) => {
                   <TableHeaderButton
                     onClick={() => sortByTitle()}
                     selected={titleSelect}
+                    pointer="cursor"
                   >
                     <SpaceBetween>
                       Project Name
@@ -55,7 +56,11 @@ const AllProjects = (constraintsRef) => {
                   </TableHeaderButton>
                 </th>
                 <th>
-                  <TableHeaderButton onClick={sortByDate} selected={dateSelect}>
+                  <TableHeaderButton
+                    onClick={sortByDate}
+                    selected={dateSelect}
+                    pointer="cursor"
+                  >
                     <SpaceBetween>
                       Date
                       {dateSelect && dateSort ? <DownArrow /> : ""}
@@ -85,7 +90,7 @@ const AllProjects = (constraintsRef) => {
                   </TableData>
                   <TableData>
                     <P weight={300} size="14px">
-                      {joinString(project.stack)}
+                      {joinString(project.stack).toString()}
                     </P>
                   </TableData>
                   <TableData>
@@ -145,7 +150,7 @@ const TableHeaderButton = styled.button`
       ? "linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(158,202,219,1) 100%)"
       : "linear-gradient(180deg,rgba(255, 255, 255, 1) 0%,rgba(206, 212, 218, 1) 100%)"};
   color: #212529;
-  cursor: pointer;
+  cursor: ${(props) => (props.pointer ? "pointer" : "default")};
 `;
 
 const TableData = styled.td`
