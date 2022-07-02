@@ -134,8 +134,8 @@ const FileTable = styled.table`
   background-color: #f8f9fa;
   display: block;
   max-height: 70vh;
-  overflow-x: auto;
-  overflow-y: auto;
+  overflow-x: scroll;
+  overflow-y: scroll;
   white-space: nowrap;
 `;
 
