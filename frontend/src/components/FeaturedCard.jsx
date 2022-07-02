@@ -30,7 +30,7 @@ const FeaturedCard = (props) => {
         // rotateY: [0, -180],
         // transition: { duration: 1, times: [0, 0.5, 1] },
         // opacity: [1, 0,],
-        rotateY: [0, -180],
+        rotateY: [0, 180],
         transition: { duration: 1 },
       }));
       controlImageFade.start(() => ({
@@ -46,7 +46,7 @@ const FeaturedCard = (props) => {
       controlDescription.start(() => ({
         // scale: [1, 1, 1],
         opacity: [0, 1],
-        rotateY: [-180, 0],
+        rotateY: [180, 0],
         transition: { duration: 1 },
         // transition: { duration: 0.8, times: [0, 0.2, 1] },
       }));
@@ -141,7 +141,7 @@ const TitleTechWrapper = styled(motion.div)`
 const Scene = styled.div`
   width: 100%;
   height: 100%;
-  perspective: -100px;
+  perspective: 1000px;
 `;
 
 const Card = styled(motion.div)`
