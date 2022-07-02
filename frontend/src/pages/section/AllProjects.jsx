@@ -82,12 +82,12 @@ const AllProjects = (constraintsRef) => {
           <TableBody>
             {!loading &&
               sortedProjects.map((project) => (
-                <motion.tr key={project._id} layout>
+                <TableDataRow key={project._id} layout>
                   <TableData>
                     <EmojiSpan>{project.emoji}</EmojiSpan> {project.title}
                   </TableData>
                   <TableData>
-                    {format(new Date(project.published), "dd/MM/yy")}
+                    {format(new Date(project.published), "dd.MM.yy")}
                   </TableData>
                   {/* <TableData>
                     <P weight={300} size="14px">
@@ -100,7 +100,7 @@ const AllProjects = (constraintsRef) => {
                   <TableData>
                     <LiveIcon />
                   </TableData> */}
-                </motion.tr>
+                </TableDataRow>
               ))}
           </TableBody>
         </FileTable>
@@ -134,6 +134,24 @@ const FileTable = styled.table`
 const TableHeader = styled.th`
   position: sticky;
   top: 0;
+`;
+
+const TableDataRow = styled(motion.tr)`
+  :hover {
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  :active {
+    font-weight: 400;
+    cursor: pointer;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(206, 212, 218, 1) 100%
+    );
+  }
 `;
 
 const TableBody = styled.tbody`

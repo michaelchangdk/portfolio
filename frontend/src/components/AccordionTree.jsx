@@ -18,7 +18,14 @@ const AccordionTree = (props) => {
       height: "auto",
       transition: { staggerChildren: 0.3 },
     },
-    collapsed: { opacity: 0, height: 0 },
+    closed: {
+      opacity: 0,
+      height: 0,
+      // transition: {
+      //   staggerChildren: 0.2,
+      //   staggerDirection: -1,
+      // },
+    },
   };
 
   useEffect(() => {
@@ -37,9 +44,9 @@ const AccordionTree = (props) => {
         {!items & isOpen && (
           <TreeBody
             // key="content"
-            initial="collapsed"
+            initial="closed"
             animate="open"
-            exit="collapsed"
+            exit="closed"
             variants={variants}
           >
             {props.children}
@@ -48,9 +55,9 @@ const AccordionTree = (props) => {
         {!!items & isOpen && (
           <TreeBody
             // key="content"
-            initial="collapsed"
+            initial="closed"
             animate="open"
-            exit="collapsed"
+            exit="closed"
             variants={variants}
           >
             {items.map((item) => (

@@ -40,7 +40,7 @@ const FeaturedCard = (props) => {
       }));
       controlImageFade.start(() => ({
         rotateY: [0, -180],
-        transition: { duration: 1 },
+        transition: { duration: 0.5 },
       }));
       // Next card state:
     } else if (fade & !flip) {
