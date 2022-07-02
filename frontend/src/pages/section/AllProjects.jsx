@@ -115,9 +115,8 @@ const BorderScrollDiv = styled.div`
   border: 1px solid #343a40;
   background-color: #f8f9fa;
   overflow: hidden;
-  overflow-y: scroll;
-  overflow-x: scroll;
-  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  overflow-x: auto;
   white-space: nowrap;
   max-height: 80vh;
 `;
