@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { motion, useAnimation, useTransform } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { urlFor } from "../client";
 import styled from "styled-components/macro";
 import { H2, P, RecessedWrapper } from "../styles/global";
