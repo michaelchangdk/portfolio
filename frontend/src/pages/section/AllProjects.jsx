@@ -119,6 +119,7 @@ const BorderScrollDiv = styled.div`
   overflow-x: auto;
   white-space: nowrap;
   max-height: 80vh; */
+  overflow: hidden;
 `;
 
 const FileTable = styled.table`
@@ -132,7 +133,6 @@ const FileTable = styled.table`
   background-color: #f8f9fa;
   display: block;
   max-height: 70vh;
-  overflow: hidden;
   overflow-x: auto;
   overflow-y: auto;
   white-space: nowrap;

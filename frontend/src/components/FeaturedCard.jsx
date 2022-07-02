@@ -26,52 +26,35 @@ const FeaturedCard = (props) => {
     // Initial state
     if (!fade & !flip) {
       controlDescription.start(() => ({
-        // opacity: [1, 0, 0],
-        // rotateY: [0, -180],
-        // transition: { duration: 1, times: [0, 0.5, 1] },
-        // opacity: [1, 0,],
         rotateY: [0, 180],
         transition: { duration: 1 },
       }));
       controlImageFade.start(() => ({
-        // opacity: [0, 1],
-        // rotateY: [-180, 0],
-        // transition: { duration: 1, times: [0, 0.5, 1] },
-        // opacity: [0, 1],
         rotateY: [-180, 0],
         transition: { duration: 1 },
       }));
       // Flipping card
     } else if (!fade & flip) {
       controlDescription.start(() => ({
-        // scale: [1, 1, 1],
         opacity: [0, 1],
         rotateY: [180, 0],
         transition: { duration: 1 },
-        // transition: { duration: 0.8, times: [0, 0.2, 1] },
       }));
       controlImageFade.start(() => ({
-        // opacity: [1, 0],
         rotateY: [0, -180],
         transition: { duration: 1 },
-        // transition: { duration: 0.8, times: [0, 0.2, 1] },
       }));
       // Next card state:
     } else if (fade & !flip) {
       controlTextFade.start(() => ({
         opacity: [0, 1],
-        // transition: { duration: 0.8, times: [0, 0.2, 1] },
       }));
       controlImageFade.start(() => ({
         rotateY: [0, 0],
         opacity: [0, 1],
-        // scale: [1, 1],
-        // transition: { duration: 0.8, times: [0, 0.2, 1] },
       }));
       controlDescription.start(() => ({
-        // scale: [1, 0],
         opacity: [0, 0],
-        // transition: { duration: 0.01 },
       }));
     }
     // else if (!fade) {
@@ -153,24 +136,23 @@ const Card = styled(motion.div)`
 `;
 
 const FeaturedImage = styled(motion.img)`
-  /* position: absolute; */
   height: 100%;
   width: 100%;
   backface-visibility: hidden;
 `;
 
 const DescriptionWrapper = styled(motion.div)`
-  backface-visibility: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 24px;
   position: absolute;
   left: 0;
   bottom: 0;
   right: 0;
   top: 0;
-  padding: 24px;
+  backface-visibility: hidden;
   background-color: rgba(255, 255, 255, 1);
 `;
 
