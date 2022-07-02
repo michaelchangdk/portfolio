@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 // Function imports
 import { FetchSection } from "../../services/clientFunctions";
 import { joinString, SortTable } from "../../helpers/functions";
@@ -40,7 +41,7 @@ const AllProjects = (constraintsRef) => {
       <BorderDiv>
         <ScrollMenu>
           <FileTable>
-            <tbody>
+            <thead>
               <tr>
                 <th>
                   <TableHeaderButton
@@ -78,29 +79,31 @@ const AllProjects = (constraintsRef) => {
                   <TableHeaderButton>View</TableHeaderButton>
                 </th>
               </tr>
+            </thead>
+            <tbody>
+              {!loading &&
+                sortedProjects.map((project) => (
+                  <motion.tr key={project._id} layout>
+                    <TableData>
+                      <EmojiSpan>{project.emoji}</EmojiSpan> {project.title}
+                    </TableData>
+                    <TableData>
+                      {format(new Date(project.published), "dd/MM/yyyy")}
+                    </TableData>
+                    <TableData>
+                      <P weight={300} size="14px">
+                        {joinString(project.stack).toString()}
+                      </P>
+                    </TableData>
+                    <TableData>
+                      <GithubIcon />
+                    </TableData>
+                    <TableData>
+                      <LiveIcon />
+                    </TableData>
+                  </motion.tr>
+                ))}
             </tbody>
-            {!loading &&
-              sortedProjects.map((project) => (
-                <tr key={project._id}>
-                  <TableData>
-                    <EmojiSpan>{project.emoji}</EmojiSpan> {project.title}
-                  </TableData>
-                  <TableData>
-                    {format(new Date(project.published), "dd/MM/yyyy")}
-                  </TableData>
-                  <TableData>
-                    <P weight={300} size="14px">
-                      {joinString(project.stack).toString()}
-                    </P>
-                  </TableData>
-                  <TableData>
-                    <GithubIcon />
-                  </TableData>
-                  <TableData>
-                    <LiveIcon />
-                  </TableData>
-                </tr>
-              ))}
           </FileTable>
         </ScrollMenu>
       </BorderDiv>
