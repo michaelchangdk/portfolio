@@ -43,7 +43,7 @@ const AllProjects = (constraintsRef) => {
           <FileTable>
             <thead>
               <tr>
-                <th>
+                <TableHeader>
                   <TableHeaderButton
                     onClick={() => sortByTitle()}
                     selected={titleSelect}
@@ -55,8 +55,8 @@ const AllProjects = (constraintsRef) => {
                       {titleSelect && !titleSort ? <UpArrow /> : ""}
                     </SpaceBetween>
                   </TableHeaderButton>
-                </th>
-                <th>
+                </TableHeader>
+                <TableHeader>
                   <TableHeaderButton
                     onClick={sortByDate}
                     selected={dateSelect}
@@ -68,16 +68,16 @@ const AllProjects = (constraintsRef) => {
                       {dateSelect && !dateSort ? <UpArrow /> : ""}
                     </SpaceBetween>
                   </TableHeaderButton>
-                </th>
-                <th>
+                </TableHeader>
+                <TableHeader>
                   <TableHeaderButton>Tags</TableHeaderButton>
-                </th>
-                <th>
+                </TableHeader>
+                <TableHeader>
                   <TableHeaderButton>File</TableHeaderButton>
-                </th>
-                <th>
+                </TableHeader>
+                <TableHeader>
                   <TableHeaderButton>View</TableHeaderButton>
-                </th>
+                </TableHeader>
               </tr>
             </thead>
             <tbody>
@@ -92,7 +92,7 @@ const AllProjects = (constraintsRef) => {
                     </TableData>
                     <TableData>
                       <P weight={300} size="14px">
-                        {joinString(project.stack).toString()}
+                        {joinString(project.stack)}
                       </P>
                     </TableData>
                     <TableData>
@@ -121,19 +121,24 @@ const BorderDiv = styled.div`
 const ScrollMenu = styled.div`
   overflow: auto;
   white-space: nowrap;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
+  max-height: 80vh;
 `;
 
 const FileTable = styled.table`
   width: 100%;
   text-align: left;
-  /* border: 1px solid #343a40; */
   border-left: none;
   border-right: none;
   font-family: "Prompt", sans-serif;
   font-weight: 300;
   font-size: 14px;
   background-color: #f8f9fa;
+`;
+
+const TableHeader = styled.th`
+  position: sticky;
+  top: 0;
 `;
 
 const TableHeaderButton = styled.button`
