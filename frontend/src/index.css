@@ -152,33 +152,11 @@ table td + td {
   border-left: 1px solid #343a40;
 }
 
-div ::-webkit-scrollbar {
+/* Custom Scrollbar CSS */
+/* Table scrollbar. */
+/* div ::-webkit-scrollbar {
   height: 24px;
 }
-/* the scrollbar. */
-/* ::-webkit-scrollbar-button {
-  background-size: 100%;
-  height: 10px;
-  width: 10px;
-  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
-} */
-/* ::-webkit-scrollbar-button:horizontal:increment {
-  background-image: url(https://dl.dropboxusercontent.com/u/55165267/icon2.png);
-}
-
-::-webkit-scrollbar-button:horizontal:decrement {
-  background-image: url(https://dl.dropboxusercontent.com/u/55165267/icon4.png);
-}
-
-::-webkit-scrollbar-button:vertical:increment {
-  background-image: url(https://dl.dropboxusercontent.com/u/55165267/icon3.png);
-}
-
-::-webkit-scrollbar-button:vertical:decrement {
-  background-image: url(https://dl.dropboxusercontent.com/u/55165267/icon.png);
-} */
-/* the buttons on the scrollbar (arrows pointing upwards and downwards). */
 div ::-webkit-scrollbar-thumb {
   background: rgb(206, 212, 218);
   background: linear-gradient(
@@ -190,17 +168,17 @@ div ::-webkit-scrollbar-thumb {
   border-left: 1px solid #343a40;
   border-right: 1px solid #343a40;
   border-bottom: none;
-}
+} */
 /* the draggable scrolling handle. */
-div ::-webkit-scrollbar-track {
+/* div ::-webkit-scrollbar-track {
   background: #dee2e6;
-}
+} */
 /* the track (progress bar) of the scrollbar. */
-div ::-webkit-scrollbar-track-piece {
+/* div ::-webkit-scrollbar-track-piece {
   background: #dee2e6;
   border-top: 1px solid #343a40;
   border-left: none;
   border-right: none;
   border-bottom: none;
-}
+} */
 /* the track (progress bar) NOT covered by the handle. */

@@ -91,6 +91,13 @@ export const RecessedWrapper = styled.div`
   position: relative;
 `;
 
+export const SpaceBetween = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 // Images - used in Header
 export const FullWidthImage = styled.img`
   width: 100%;

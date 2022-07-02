@@ -90,3 +90,15 @@
 //     }
 //     return array;
 //     }
+
+// Write a function that takes an array of strings and returns a string where the items are separated by a comma
+
+// const join = (array) => {
+//     let string = "";
+//     for (let i = 0; i < array.length; i++) {
+//         if (i === array.length - 1) {
+//             string += `${array[i]}`;
+//         } else {
+//             string += `${array[i]}, `;
+//         }
+//     }

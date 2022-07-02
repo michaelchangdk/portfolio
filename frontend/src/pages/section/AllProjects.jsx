@@ -1,12 +1,17 @@
 import React from "react";
+// Function imports
 import { FetchSection } from "../../services/clientFunctions";
+import { joinString, SortTable } from "../../helpers/functions";
 // Component Import
 import Window from "../../components/Window";
 // Styling and Asset Imports
 import styled from "styled-components/macro";
+import { SpaceBetween } from "../../styles/global";
 import { FileTrayFull } from "@styled-icons/ionicons-solid/FileTrayFull";
 import { ExternalLink } from "@styled-icons/heroicons-outline/ExternalLink";
 import { GithubOutline } from "@styled-icons/evaicons-outline/GithubOutline";
+import { TriangleDown } from "@styled-icons/octicons/TriangleDown";
+import { TriangleUp } from "@styled-icons/octicons/TriangleUp";
 // Query Declaration
 const query = `*[_type == "allprojects" && !(_id in path('drafts.**'))] {allprojects[]->, title, color}`;
 
@@ -14,8 +19,16 @@ const { format } = require("date-fns");
 
 const AllProjects = (constraintsRef) => {
   const [loading, data] = FetchSection(query);
+  const [
+    sortedProjects,
+    sortByDate,
+    sortByTitle,
+    titleSelect,
+    titleSort,
+    dateSelect,
+    dateSort,
+  ] = SortTable(loading, data);
 
-  console.log(data);
   return (
     <Window
       title={!loading ? data[0].title : ""}
@@ -27,39 +40,57 @@ const AllProjects = (constraintsRef) => {
       <BorderDiv>
         <ScrollMenu>
           <FileTable>
-            <tr>
-              <th>
-                <TableHeaderButton>Project Name</TableHeaderButton>
-              </th>
-              <th>
-                <TableHeaderButton>Date</TableHeaderButton>
-              </th>
-              <th>
-                <TableHeaderButton>Tags</TableHeaderButton>Tags
-              </th>
-              <th>
-                <TableHeaderButton>Links</TableHeaderButton>
-              </th>
-            </tr>
+            <tbody>
+              <tr>
+                <th>
+                  <TableHeaderButton
+                    onClick={() => sortByTitle()}
+                    selected={titleSelect}
+                  >
+                    <SpaceBetween>
+                      Project Name
+                      {titleSelect && titleSort ? <DownArrow /> : ""}
+                      {titleSelect && !titleSort ? <UpArrow /> : ""}
+                    </SpaceBetween>
+                  </TableHeaderButton>
+                </th>
+                <th>
+                  <TableHeaderButton onClick={sortByDate} selected={dateSelect}>
+                    <SpaceBetween>
+                      Date
+                      {dateSelect && dateSort ? <DownArrow /> : ""}
+                      {dateSelect && !dateSort ? <UpArrow /> : ""}
+                    </SpaceBetween>
+                  </TableHeaderButton>
+                </th>
+                <th>
+                  <TableHeaderButton>Tags</TableHeaderButton>
+                </th>
+                <th>
+                  <TableHeaderButton>File</TableHeaderButton>
+                </th>
+                <th>
+                  <TableHeaderButton>View</TableHeaderButton>
+                </th>
+              </tr>
+            </tbody>
             {!loading &&
-              data[0].allprojects.map((project) => (
+              sortedProjects.map((project) => (
                 <tr key={project._id}>
                   <TableData>
-                    <EmojiSize>{project.emoji}</EmojiSize> {project.title}
+                    <EmojiSpan>{project.emoji}</EmojiSpan> {project.title}
                   </TableData>
                   <TableData>
                     {format(new Date(project.published), "dd/MM/yyyy")}
                   </TableData>
                   <TableData>
-                    <TableText>
-                      {project.stack.map((item) => `${item}, `)}
-                    </TableText>
+                    <TableSpan>{joinString(project.stack)}</TableSpan>
                   </TableData>
                   <TableData>
-                    <DataItemWrapper>
-                      <GithubIcon />
-                      <LiveIcon />
-                    </DataItemWrapper>
+                    <GithubIcon />
+                  </TableData>
+                  <TableData>
+                    <LiveIcon />
                   </TableData>
                 </tr>
               ))}
@@ -107,33 +138,37 @@ const TableHeaderButton = styled.button`
   font-weight: 400;
   font-size: 14px;
   background: rgb(255, 255, 255);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(206, 212, 218, 1) 100%
-  );
+  background: ${(props) =>
+    props.selected
+      ? "linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(158,202,219,1) 100%)"
+      : "linear-gradient(180deg,rgba(255, 255, 255, 1) 0%,rgba(206, 212, 218, 1) 100%)"};
   color: #212529;
+  cursor: pointer;
 `;
 
 const TableData = styled.td`
   padding: 4px 8px;
 `;
 
-const EmojiSize = styled.span`
+const EmojiSpan = styled.span`
   font-size: 20px;
 `;
 
-const TableText = styled.span`
+const TableSpan = styled.span`
   text-align: left;
   font-family: "Prompt", sans-serif;
   font-weight: 300;
   font-size: 14px;
 `;
 
-const DataItemWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 4px;
+const DownArrow = styled(TriangleDown)`
+  height: 16px;
+  width: 16px;
+`;
+
+const UpArrow = styled(TriangleUp)`
+  height: 16px;
+  width: 16px;
 `;
 
 const GithubIcon = styled(GithubOutline)`
