@@ -68,7 +68,7 @@ const AllProjects = (constraintsRef) => {
                   </SpaceBetween>
                 </TableHeaderButton>
               </TableHeader>
-              <TableHeader>
+              {/* <TableHeader>
                 <TableHeaderButton>Tags</TableHeaderButton>
               </TableHeader>
               <TableHeader>
@@ -76,10 +76,10 @@ const AllProjects = (constraintsRef) => {
               </TableHeader>
               <TableHeader>
                 <TableHeaderButton>View</TableHeaderButton>
-              </TableHeader>
+              </TableHeader> */}
             </tr>
           </thead>
-          <TableBody>
+          <tbody>
             {!loading &&
               sortedProjects.map((project) => (
                 <motion.tr key={project._id} layout>
@@ -89,7 +89,7 @@ const AllProjects = (constraintsRef) => {
                   <TableData>
                     {format(new Date(project.published), "dd/MM/yyyy")}
                   </TableData>
-                  <TableData>
+                  {/* <TableData>
                     <P weight={300} size="14px">
                       {joinString(project.stack)}
                     </P>
@@ -99,10 +99,10 @@ const AllProjects = (constraintsRef) => {
                   </TableData>
                   <TableData>
                     <LiveIcon />
-                  </TableData>
+                  </TableData> */}
                 </motion.tr>
               ))}
-          </TableBody>
+          </tbody>
         </FileTable>
       </BorderScrollDiv>
     </Window>
@@ -113,45 +113,27 @@ export default AllProjects;
 
 const BorderScrollDiv = styled.div`
   border: 1px solid #343a40;
-  background-color: #f8f9fa;
-  /* overflow: hidden;
-  overflow-y: auto;
+  background-color: #ced4da;
+  overflow: hidden;
   overflow-x: auto;
+  overflow-y: auto;
   white-space: nowrap;
-  max-height: 80vh; */
-  overflow: clip;
-  padding: 0;
-  overscroll-behavior: none none;
+  max-height: 70vh;
+  overscroll-behavior: none;
 `;
 
 const FileTable = styled.table`
   width: 100%;
   text-align: left;
-  border-left: none;
-  border-right: none;
   font-family: "Prompt", sans-serif;
   font-weight: 300;
   font-size: 14px;
   background-color: #f8f9fa;
-  display: block;
-  max-height: 70vh;
-  overflow-x: scroll;
-  overflow-y: scroll;
-  white-space: nowrap;
-  overscroll-behavior: none none;
 `;
 
 const TableHeader = styled.th`
   position: sticky;
   top: 0;
-`;
-
-const TableBody = styled.tbody`
-  /* display: block;
-  max-height: 80vh;
-  overflow: hidden;
-  overflow-y: auto;
-  white-space: nowrap; */
 `;
 
 const TableHeaderButton = styled.button`
