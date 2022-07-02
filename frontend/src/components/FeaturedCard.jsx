@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { motion, useAnimation, useTransform } from "framer-motion";
 import { urlFor } from "../client";
 import styled from "styled-components/macro";
 import { H2, P, RecessedWrapper } from "../styles/global";
@@ -16,33 +16,44 @@ const FeaturedCard = (props) => {
 
   const descriptionVariants = {
     hidden: {
-      scale: 0,
+      opacity: 0,
     },
   };
 
+  console.log("fade", fade, "flip", flip);
+
   useEffect(() => {
-    if (!fade & flip) {
-      controlImageFade.start(() => ({
-        opacity: [1, 0.1],
-        transition: { duration: 0.8, times: [0, 0.2, 1] },
-      }));
+    // Initial state
+    if (!fade & !flip) {
       controlDescription.start(() => ({
-        scale: [0, 1],
-      }));
-    } else if (!fade & !flip) {
-      controlDescription.start(() => ({
-        scale: [1, 0],
+        opacity: [1, 0],
+        rotateY: [0, -180],
       }));
       controlImageFade.start(() => ({
-        opacity: [0.1, 1],
+        opacity: [0, 1],
+        rotateY: [-180, 0],
         transition: { duration: 0.8, times: [0, 0.2, 1] },
       }));
-    } else if (fade) {
+      // Flipping card
+    } else if (!fade & flip) {
+      controlDescription.start(() => ({
+        scale: [1, 1],
+        opacity: [0, 1],
+        rotateY: [-180, 0],
+      }));
+      controlImageFade.start(() => ({
+        opacity: [1, 0],
+        transition: { duration: 0.8, times: [0, 0.2, 1] },
+        rotateY: [0, -180],
+      }));
+      // Next card state:
+    } else if (fade & !flip) {
       controlTextFade.start(() => ({
         opacity: [0, 1],
         transition: { duration: 0.8, times: [0, 0.2, 1] },
       }));
       controlImageFade.start(() => ({
+        rotateY: [0, 0],
         opacity: [0, 1],
         scale: [1, 1],
         transition: { duration: 0.8, times: [0, 0.2, 1] },
@@ -91,10 +102,6 @@ const FeaturedCard = (props) => {
             animate={controlImageFade}
           />
         </RecessedWrapper>
-        {/* <FullWidthImage
-                src={urlFor(data[0].featured[index].image.asset._ref)}
-                alt={data[0].featured[index].title}
-              /> */}
         <TitleTechWrapper animate={controlTextFade}>
           <H2 weight={400}>{data[0].featured[index].title}</H2>
           <P weight={300} size="14px">
@@ -110,11 +117,6 @@ export default FeaturedCard;
 
 const FeaturedImage = styled(motion.img)`
   width: 100%;
-  /* position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0; */
 `;
 
 const TitleTechWrapper = styled(motion.div)`
